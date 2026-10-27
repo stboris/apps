@@ -8,7 +8,8 @@ REMOTE_ROOT="/home/jupubozi/public_html/apps.borisstiner.com"
 
 cd "$(dirname "$0")"
 
-rsync -avz --delete --exclude .git --exclude .nojekyll --exclude deploy.sh \
+# --chmod: the webroot must stay readable for the web server, whatever the local folder mode is.
+rsync -avz --delete --chmod=D755,F644 --exclude .git --exclude .nojekyll --exclude deploy.sh \
     ./ "$SSH_TARGET:$REMOTE_ROOT/"
 
 echo "Deployed to https://apps.borisstiner.com"
