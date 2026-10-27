@@ -3,11 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lumina: Die Kreide-Heldin · The Chalk Hero</title>
-<meta name="description" content="Lumina: Die Kreide-Heldin / The Chalk Hero. Eine Geschichte in acht Folgen für Kinder von 6 bis 8. Kein Abo, keine Werbung, funktioniert offline. Datenschutz und Support.">
+<title>Lumina: Lese-App für Kinder mit Superheldin · Lesen &amp; Schreiben lernen (6–8)</title>
+<meta name="description" content="Lumina: Die Kreide-Heldin. Lesen lernen mit Silben, Buchstaben schreiben und vorgelesene Geschichten für Erstleser von 6 bis 8. Kein Abo, keine Werbung, funktioniert offline. Deutsch und Englisch.">
 <meta name="theme-color" content="#e6d9f5">
+<link rel="canonical" href="https://apps.borisstiner.com/lumina/">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumina: Die Kreide-Heldin · The Chalk Hero">
+<meta property="og:description" content="Was Lina zeichnet, wird lebendig. Lese- und Lern-App für Kinder von 6 bis 8. Kein Abo, keine Werbung, offline.">
+<meta property="og:image" content="https://apps.borisstiner.com/lumina/assets/finale.jpg">
+<meta property="og:url" content="https://apps.borisstiner.com/lumina/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Lumina: Die Kreide-Heldin",
+  "alternateName": "Lumina: The Chalk Hero",
+  "operatingSystem": "iOS, iPadOS",
+  "applicationCategory": "EducationalApplication",
+  "inLanguage": [
+   "de",
+   "en"
+  ],
+  "url": "https://apps.borisstiner.com/lumina/",
+  "image": "https://apps.borisstiner.com/lumina/assets/icon.png",
+  "description": "Lese- und Lern-App für Kinder von 6 bis 8: Lina wird mit ihrer Zauberkreide zur Superheldin Lumina. Lesen lernen mit Silben, Buchstaben schreiben, vorgelesene Geschichten. Kein Abo, keine Werbung, offline.",
+  "audience": {
+   "@type": "PeopleAudience",
+   "suggestedMinAge": 6,
+   "suggestedMaxAge": 8
+  },
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "CHF",
+   "description": "Episode 1 free, episodes 2-8 as one-time in-app purchases"
+  },
+  "author": {
+   "@type": "Person",
+   "name": "Boris Stiner"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Für welches Alter ist Lumina?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Für Kinder von 6 bis 8 Jahren, also Erstleser in der 1. und 2. Klasse. Alles wird vorgelesen, darum macht Lumina auch Kindern Freude, die noch nicht fliessend lesen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Ist Lumina werbefrei?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja. Keine Werbung, kein Tracking, kein Konto und keine Software von Drittanbietern. Lumina sammelt keine Daten."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Funktioniert Lumina ohne Internet?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, vollständig offline: im Auto, im Zug, im Flugzeug oder in den Ferien. Die App braucht nie eine Verbindung."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Was kostet Lumina? Gibt es ein Abo?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Kein Abo. Folge 1 ist gratis. Die Folgen 2 bis 8 kaufen Sie einmalig, einzeln oder alle zusammen, im Elternbereich hinter der Eltern-Sperre. Mit der Familienfreigabe gelten Käufe für die ganze Familie."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Lernt mein Kind damit lesen und schreiben?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Lumina ersetzt keinen Unterricht, übt aber spielerisch, was in der Schule gerade dran ist: Buchstaben schreiben, Silben klatschen und Wörter mit farbigen Silben lesen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "In welchen Sprachen gibt es Lumina?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Deutsch und Englisch, jede Sprache mit eigenen Stimmen. Die Sprache stellen Sie jederzeit im Elternbereich um."
+    }
+   }
+  ]
+ }
+]
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap">
 <style>
@@ -118,7 +213,7 @@ img, video { max-width: 100%; display: block }
 .trio > figure { grid-column: span 2 }
 .trio > figure.wide { grid-column: span 3 }
 .trio .art { aspect-ratio: 4 / 3; border-radius: 20px; display: grid; place-content: center; gap: 18px; padding: 24px; text-align: center }
-.wide .art { aspect-ratio: 16 / 9 }
+.wide .art, .trio .wide img { aspect-ratio: 16 / 9 }
 .clap { background: var(--board-2); border: 2px solid oklch(97% 0.012 100 / .15) }
 .clap small { color: var(--chalk-mute); font-size: 15px }
 .clap .word { font: 800 clamp(2.2rem, 4.4vw, 3.4rem)/1 var(--display); color: var(--chalk); letter-spacing: .01em }
@@ -133,6 +228,24 @@ img, video { max-width: 100%; display: block }
 .trio img, .trio video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; border: 2px solid oklch(97% 0.012 100 / .15) }
 .trio h3 { font-size: 24px; font-weight: 700 }
 .trio p { margin: 6px 0 0; color: var(--chalk-mute) }
+
+/* ---- learning (SEO) ---- */
+.learn .lead { font-size: 19px; color: var(--mute); max-width: 62ch; margin: 0 }
+.learn-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 40px }
+.learn-grid h3 { font-size: 22px; font-weight: 700 }
+.learn-grid p { margin: 8px 0 0; color: var(--mute) }
+/* ---- FAQ ---- */
+.faq > * { max-width: 820px }
+.faq h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 24px }
+.faq details { border-top: 1px solid var(--line); padding-block: 18px }
+.faq details:last-child { border-bottom: 1px solid var(--line) }
+.faq summary { cursor: pointer; font: 700 20px/1.3 var(--display); list-style: none; display: flex; justify-content: space-between; gap: 16px }
+.faq summary::-webkit-details-marker { display: none }
+.faq summary::after { content: "+"; color: var(--accent); font-size: 26px; line-height: 1; transition: transform .2s var(--ease-out) }
+.faq details[open] summary::after { transform: rotate(45deg) }
+.faq details p { margin: 10px 0 0; color: var(--mute); max-width: 64ch }
+@media (max-width: 860px) { .learn-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) } }
+@media (max-width: 520px) { .learn-grid { grid-template-columns: minmax(0, 1fr) } }
 
 /* ---- parents ---- */
 .parents { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px 64px; align-items: start }
@@ -214,8 +327,7 @@ img, video { max-width: 100%; display: block }
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></li>
         </ul>
         <ul class="chips">
-          <!-- Lino option: show once it is in a release build -->
-          <li hidden><span lang="de">Mit Lina oder Lino</span><span lang="en">Play as Lina or Lino</span></li>
+          <!-- Lino option: remove "hidden" once Lino is in a release build --><li hidden><span lang="de">Mit Lina oder Lino</span><span lang="en">Play as Lina or Lino</span></li>
           <li>iPhone &amp; iPad</li>
           <li><span lang="de">Deutsch &amp; Englisch</span><span lang="en">German &amp; English</span></li>
         </ul>
@@ -243,8 +355,7 @@ img, video { max-width: 100%; display: block }
     <figure class="ep"><img src="assets/cover7.jpg" alt="" loading="lazy"><figcaption><span>7</span><b><span lang="de">Omas Geheimnis</span><span lang="en">Grandma's Secret</span></b></figcaption></figure>
     <figure class="ep"><img src="assets/cover8.jpg" alt="" loading="lazy"><figcaption><span>8</span><b><span lang="de">Der grosse Grummel</span><span lang="en">The Big Grumble</span></b></figcaption></figure>
   </div>
-  <!-- Lino option: remove "hidden" once it is in a release build -->
-  <div class="heroes" hidden>
+  <!-- Lino option: remove "hidden" once Lino is in a release build --><div class="heroes" hidden>
     <figure><img src="assets/lumina_cheer.png" alt="Lumina / Lumina" width="427" height="560" loading="lazy"><figcaption><b>Lina → Lumina</b><span lang="de">die Kreide-Heldin</span><span lang="en">the Chalk Hero</span></figcaption></figure>
     <div class="or"><h3><span lang="de">Lina oder Lino?</span><span lang="en">Lina or Lino?</span></h3><p><span lang="de">Ihr Kind wählt, wer die Geschichte erlebt: Lina, die zu Lumina wird, oder Lino, der zu Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Your child chooses who lives the story: Lina, who becomes Lumina, or Lino, who becomes Lumino. The same story, each hero with their own voice.</span></p></div>
     <figure><img src="assets/lumina_cheer__boy.png" alt="Lumino / Lumino" width="427" height="560" loading="lazy"><figcaption><b>Lino → Lumino</b><span lang="de">der Kreide-Held</span><span lang="en">the Chalk Hero</span></figcaption></figure>
@@ -260,14 +371,23 @@ img, video { max-width: 100%; display: block }
     <figure><img src="assets/03_star.jpg" alt="" loading="lazy"><figcaption><h3><span lang="de">Den Stern zeichnen</span><span lang="en">Draw the star</span></h3><p><span lang="de">Mit dem Finger der Linie folgen, und Lina verwandelt sich.</span><span lang="en">Trace the line with a finger and Lina transforms.</span></p></figcaption></figure>
     <figure><img src="assets/04_letters.jpg" alt="" loading="lazy"><figcaption><h3><span lang="de">Buchstaben schreiben</span><span lang="en">Write letters</span></h3><p><span lang="de">Erste Wörter Strich für Strich, wie an der Wandtafel.</span><span lang="en">First words stroke by stroke, like on the blackboard.</span></p></figcaption></figure>
     <figure><video src="assets/vid_chest.mp4" poster="assets/vid_chest.jpg" autoplay muted loop playsinline aria-label="Lina öffnet die Truhe / Lina opens the chest"></video><figcaption><h3><span lang="de">Zuhören und mitreden</span><span lang="en">Listen and choose</span></h3><p><span lang="de">Jede Zeile wird vorgelesen. Ihr Kind entscheidet mit, was Lina tut.</span><span lang="en">Every line is read aloud. Your child helps decide what Lina does.</span></p></figcaption></figure>
-    <figure class="wide"><div class="art clap" role="img" aria-label="Schmet-ter-ling: drei Silben, dreimal klatschen / But-ter-fly: three syllables, three claps">
-        <small><span lang="de">Bei jeder Silbe klatschst du einmal.</span><span lang="en">Clap once for every syllable.</span></small>
-        <div class="word"><span lang="de">Schmet<i>·</i>ter<i>·</i>ling</span><span lang="en">But<i>·</i>ter<i>·</i>fly</span></div>
-        <div class="beats" aria-hidden="true"><span>1</span><span>2</span><span>3</span></div></div>
-      <figcaption><h3><span lang="de">Silben klatschen</span><span lang="en">Clap the syllables</span></h3><p><span lang="de">Oma spricht ein Wort vor, Ihr Kind klatscht jede Silbe mit. So wird Lesen zum Rhythmus.</span><span lang="en">Grandma says a word and your child claps along, once per syllable. Reading becomes a rhythm.</span></p></figcaption></figure>
-    <figure class="wide"><div class="art syl" role="img" aria-label="Text mit farbigen Silben / Text with coloured syllables">
-        <p><span class="b">Li</span><span class="r">na</span> <span class="b">fin</span><span class="r">det</span> <span class="b">auf</span> <span class="b">dem</span> <span class="b">Dach</span><span class="r">bo</span><span class="b">den</span> <span class="b">ei</span><span class="r">ne</span> <span class="b">leuch</span><span class="r">ten</span><span class="b">de</span> <span class="b">Krei</span><span class="r">de</span>.</p></div>
+    <figure class="wide"><img src="assets/clap.jpg" alt="Silben klatschen in Lumina: Li-na / Clapping syllables in Lumina: Li-na" loading="lazy">
+      <figcaption><h3><span lang="de">Silben klatschen</span><span lang="en">Clap the syllables</span></h3><p><span lang="de">Oma spricht ein Wort vor, Ihr Kind klatscht jede Silbe mit: Li-na, Muf-fin, Schmet-ter-ling. So wird Lesen zum Rhythmus.</span><span lang="en">Grandma says a word and your child claps along, once per syllable: Li-na, Muf-fin, But-ter-fly. Reading becomes a rhythm.</span></p></figcaption></figure>
+    <figure class="wide"><img src="assets/syllables.jpg" alt="Lina fragt: Wörter klatschen? Wie geht das? Text mit farbigen Silben / Lina asks how clapping words works, text in coloured syllables" loading="lazy">
       <figcaption><h3><span lang="de">Farbige Silben</span><span lang="en">Coloured syllables</span></h3><p><span lang="de">Der deutsche Text zeigt die Silben abwechselnd blau und rot, wie in Erstlese-Büchern. Im Elternbereich abschaltbar.</span><span lang="en">The German text shows syllables in alternating blue and red, like first-reader books. You can turn it off in the Parent Area.</span></p></figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section gut learn" aria-labelledby="learn"><div class="in">
+  <div class="head">
+    <h2 id="learn"><span lang="de">Lesen lernen mit einer Superheldin</span><span lang="en">Learning to read with a superhero</span></h2>
+    <p class="lead"><span lang="de">Lumina ist eine Geschichten- und Lern-App für Erstleser in der 1. und 2. Klasse. Ihr Kind begleitet Lina, die mit ihrer Zauberkreide zur Superheldin Lumina wird, und übt dabei Lesen, Schreiben und Zuhören, ganz ohne Werbung und ohne Internet.</span><span lang="en">Lumina is a story and learning app for early readers in first and second grade. Your child follows Lina, who turns into the superhero Lumina with her magic chalk, and practises reading, writing and listening along the way, with no ads and no internet.</span></p>
+  </div>
+  <div class="learn-grid">
+    <div><h3><span lang="de">Lesen mit Silben</span><span lang="en">Reading with syllables</span></h3><p><span lang="de">Farbige Silben nach der Silbenmethode und Silben klatschen machen lange Wörter leicht. So bauen Leseanfänger Schritt für Schritt Lesesicherheit auf.</span><span lang="en">Coloured syllables (the German first-reader method) and clapping games break long words into easy parts, so beginning readers build confidence step by step.</span></p></div>
+    <div><h3><span lang="de">Schreiben lernen</span><span lang="en">Learning to write</span></h3><p><span lang="de">Buchstaben nachspuren wie an der Wandtafel: erst einzelne Buchstaben, dann erste Wörter wie den eigenen Heldennamen. Ein Schreibtraining, das sich wie ein Abenteuer anfühlt.</span><span lang="en">Trace letters like on a blackboard, first single letters, then first words such as the hero's name. Handwriting practice that feels like an adventure.</span></p></div>
+    <div><h3><span lang="de">Zuhören und Sprache</span><span lang="en">Listening and language</span></h3><p><span lang="de">Jede Zeile wird mit natürlichen Stimmen vorgelesen, auf Deutsch oder Englisch. Ideal für Kinder, die noch nicht alles selbst lesen, und zum spielerischen Englisch-Hören.</span><span lang="en">Every line is read aloud in natural voices, in German or English. Great for children who can't read everything yet, and for hearing a second language through play.</span></p></div>
+    <div><h3><span lang="de">Mut und Freundschaft</span><span lang="en">Courage and friendship</span></h3><p><span lang="de">Neue Schule, Ausgrenzung in der Pause, eine kleine Lüge: Die Geschichten greifen echte Gefühle von Schulkindern auf und zeigen, wie Mut, Freundschaft und Ehrlichkeit helfen.</span><span lang="en">A new school, being left out at break, a little lie: the stories pick up real feelings of school children and show how courage, friendship and honesty help.</span></p></div>
   </div>
 </div></section>
 
@@ -291,6 +411,17 @@ img, video { max-width: 100%; display: block }
   </div>
   <figure class="gate"><img src="assets/08_gate.jpg" alt="Eltern-Sperre: eine ausgeschriebene Zahl als Ziffern eintippen / Parental gate: type a number written in words as digits" loading="lazy" width="1000" height="690">
     <figcaption><span lang="de">Die Eltern-Sperre: eine ausgeschriebene Zahl als Ziffern eintippen, dann «Weiter» gedrückt halten.</span><span lang="en">The parental gate: type a number written out in words as digits, then hold "Continue".</span></figcaption></figure>
+</div></section>
+
+<section class="section gut" id="faq" aria-labelledby="faqh"><div class="in faq">
+  <h2 id="faqh"><span lang="de">Häufige Fragen von Eltern</span><span lang="en">Questions parents ask</span></h2>
+  <details><summary><span lang="de">Für welches Alter ist Lumina?</span><span lang="en">What age is Lumina for?</span></summary><p><span lang="de">Für Kinder von 6 bis 8 Jahren, also Erstleser in der 1. und 2. Klasse. Alles wird vorgelesen, darum macht Lumina auch Kindern Freude, die noch nicht fliessend lesen.</span><span lang="en">For children aged 6 to 8, early readers in first and second grade. Everything is read aloud, so children who can't read fluently yet enjoy it too.</span></p></details>
+  <details><summary><span lang="de">Ist Lumina werbefrei?</span><span lang="en">Is Lumina ad-free?</span></summary><p><span lang="de">Ja. Keine Werbung, kein Tracking, kein Konto und keine Software von Drittanbietern. Lumina sammelt keine Daten.</span><span lang="en">Yes. No ads, no tracking, no account and no third-party software. Lumina collects no data.</span></p></details>
+  <details><summary><span lang="de">Funktioniert Lumina ohne Internet?</span><span lang="en">Does Lumina work without internet?</span></summary><p><span lang="de">Ja, vollständig offline: im Auto, im Zug, im Flugzeug oder in den Ferien. Die App braucht nie eine Verbindung.</span><span lang="en">Yes, fully offline: in the car, on the train, on a plane or on holiday. The app never needs a connection.</span></p></details>
+  <details><summary><span lang="de">Was kostet Lumina? Gibt es ein Abo?</span><span lang="en">What does Lumina cost? Is there a subscription?</span></summary><p><span lang="de">Kein Abo. Folge 1 ist gratis. Die Folgen 2 bis 8 kaufen Sie einmalig, einzeln oder alle zusammen, im Elternbereich hinter der Eltern-Sperre. Mit der Familienfreigabe gelten Käufe für die ganze Familie.</span><span lang="en">No subscription. Episode 1 is free. Episodes 2 to 8 are a one-time purchase, one by one or all together, in the Parent Area behind the parental gate. With Family Sharing, purchases work for the whole family.</span></p></details>
+  <details><summary><span lang="de">Lernt mein Kind damit lesen und schreiben?</span><span lang="en">Will my child learn to read and write with it?</span></summary><p><span lang="de">Lumina ersetzt keinen Unterricht, übt aber spielerisch, was in der Schule gerade dran ist: Buchstaben schreiben, Silben klatschen und Wörter mit farbigen Silben lesen.</span><span lang="en">Lumina doesn't replace school, but it practises what children are learning there through play: writing letters, clapping syllables and reading words in coloured syllables.</span></p></details>
+  <details><summary><span lang="de">In welchen Sprachen gibt es Lumina?</span><span lang="en">Which languages does Lumina speak?</span></summary><p><span lang="de">Deutsch und Englisch, jede Sprache mit eigenen Stimmen. Die Sprache stellen Sie jederzeit im Elternbereich um.</span><span lang="en">German and English, each with its own voices. You can switch the language at any time in the Parent Area.</span></p></details>
+  <!-- Lino option: remove "hidden" once Lino is in a release build --><details data-lino hidden><summary><span lang="de">Gibt es auch einen Superhelden für Jungen?</span><span lang="en">Is there a superhero boy too?</span></summary><p><span lang="de">Ja. Ihr Kind wählt zwischen Lina, die zur Superheldin Lumina wird, und Lino, der zum Superhelden Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Yes. Your child chooses between Lina, who becomes the superhero Lumina, and Lino, who becomes the superhero Lumino. The same story, each hero with their own voice.</span></p></details>
 </div></section>
 
 <section class="doc-band section gut" id="privacy"><div class="in doc">
