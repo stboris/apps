@@ -2,106 +2,393 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon.png">
-<title>Lumina – Datenschutz &amp; Support / Privacy &amp; Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumina: Die Kreide-Heldin · The Chalk Hero</title>
+<meta name="description" content="Lumina: Die Kreide-Heldin / The Chalk Hero. Eine Geschichte in acht Folgen für Kinder von 6 bis 8. Kein Abo, keine Werbung, funktioniert offline. Datenschutz und Support.">
+<meta name="theme-color" content="#e6d9f5">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap">
 <style>
-  :root { --ink: #222; --muted: #555; --accent: #7b4fc4; --line: #e6e0f2; --bg: #fff; }
-  @media (prefers-color-scheme: dark) { :root { --ink: #eee; --muted: #aaa; --accent: #b79ced; --line: #3a3348; --bg: #16131c; } }
-  body { font: 17px/1.6 -apple-system, system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: var(--ink); background: var(--bg); }
-  h1 { color: var(--accent); margin-bottom: .2em; } h2 { margin-top: 2.2em; border-bottom: 1px solid var(--line); padding-bottom: .2em; } h3 { margin-top: 1.6em; }
-  .muted { color: var(--muted); font-size: 15px; } a { color: var(--accent); }
-  nav a { margin-right: 1em; } li { margin: .3em 0; }
-  .hero { display: flex; gap: 18px; align-items: center; } .hero img { width: 96px; height: 96px; border-radius: 22px; flex: none; } .hero h1 { margin: 0; }
-  .scene { width: 100%; height: auto; border-radius: 16px; margin: 20px 0 4px; display: block; }
+body { margin: 0 }
+[hidden] { display: none !important }
+/* Hallmark · macrostructure: Storybook (hero with live clip → episode shelf → chalkboard → parents → policy) · genre: playful
+ * theme: custom · vibe: "picture book, chalk, lilac dusk, calm for parents"
+ * paper oklch(98% 0.012 300) · accent oklch(52% 0.17 300) purple raincoat · Baloo 2 + Figtree
+ * pre-emit critique: P4 H4 E4 S5 R4 V5 · no invented figures, policy text unchanged */
+:root {
+  --paper: oklch(98.2% 0.012 300); --card: oklch(100% 0 0); --ink: oklch(25% 0.05 300); --mute: oklch(47% 0.04 300);
+  --line: oklch(90% 0.025 300); --accent: oklch(52% 0.17 300); --accent-ink: oklch(99% 0.005 300);
+  --dusk-a: oklch(84% 0.08 300); --dusk-b: oklch(88% 0.08 50);
+  --board: oklch(33% 0.045 165); --board-2: oklch(38% 0.05 165); --chalk: oklch(97% 0.012 100); --chalk-mute: oklch(84% 0.03 140);
+  --sun: oklch(84% 0.15 85);
+  --page: oklch(98.5% 0.008 90); --page-ink: oklch(25% 0.02 260); --page-mute: oklch(50% 0.02 260);
+  --syl-blue: #1D5BC8; --syl-red: #D3263A;  /* the app's own syllable colours (AppModel.swift) */
+  --display: "Baloo 2", "SF Pro Rounded", ui-rounded, system-ui, sans-serif;
+  --body: "Figtree", "Helvetica Neue", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: oklch(18% 0.03 300); --card: oklch(23% 0.035 300); --ink: oklch(95% 0.012 300); --mute: oklch(76% 0.03 300);
+  --line: oklch(32% 0.04 300); --accent: oklch(74% 0.13 300); --accent-ink: oklch(18% 0.03 300);
+  --dusk-a: oklch(32% 0.08 300); --dusk-b: oklch(34% 0.07 40); --board: oklch(26% 0.04 165); --board-2: oklch(30% 0.045 165); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: oklch(18% 0.03 300); --card: oklch(23% 0.035 300); --ink: oklch(95% 0.012 300); --mute: oklch(76% 0.03 300);
+  --line: oklch(32% 0.04 300); --accent: oklch(74% 0.13 300); --accent-ink: oklch(18% 0.03 300);
+  --dusk-a: oklch(32% 0.08 300); --dusk-b: oklch(34% 0.07 40); --board: oklch(26% 0.04 165); --board-2: oklch(30% 0.045 165); color-scheme: dark }
+
+html, body { overflow-x: clip }
+body { background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body) }
+.js[data-lang="de"] body [lang="en"], .js[data-lang="en"] body [lang="de"] { display: none !important }
+.gut { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.in { max-width: 1160px; margin: 0 auto }
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; text-wrap: balance; margin: 0 }
+a { color: var(--accent) }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px }
+img, video { max-width: 100%; display: block }
+
+/* ---- top bar ---- */
+.top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 800 22px/1 var(--display) }
+.brand img { width: 40px; height: 40px; border-radius: 10px }
+.top nav { display: flex; align-items: center; gap: 6px 18px; flex-wrap: wrap; justify-content: end }
+.top nav > a { color: var(--ink); text-decoration: none; font-weight: 500; white-space: nowrap }
+.top nav > a:hover { color: var(--accent) }
+.langs { display: flex; padding: 3px; border-radius: 999px; background: oklch(100% 0 0 / .5); border: 1px solid var(--line) }
+.langs button { all: unset; cursor: pointer; padding: 4px 11px; border-radius: 999px; font: 600 14px var(--body); color: var(--mute) }
+.langs button[aria-pressed="true"] { background: var(--ink); color: var(--paper) }
+
+/* ---- hero ---- */
+.hero-band { background: linear-gradient(165deg, var(--dusk-a), var(--dusk-b)) }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px 56px; align-items: center; padding-block: clamp(24px, 5vw, 64px) clamp(56px, 8vw, 104px) }
+.hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.6rem); font-weight: 800; letter-spacing: -0.01em; overflow-wrap: anywhere; min-width: 0 }
+.hero h1 em { font-style: normal; color: var(--accent) }
+.hero .lede { font-size: 19px; margin: 18px 0 0; max-width: 34ch; color: var(--ink) }
+.cta-row { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; margin-top: 28px }
+.store { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 14px; background: var(--ink); color: var(--paper); text-decoration: none; font: 600 16px var(--body); white-space: nowrap }
+.store svg { width: 20px; height: 20px; fill: currentColor }
+.store small { display: block; font-size: 12px; font-weight: 500; opacity: .8; line-height: 1.1 }
+.store b { display: block; font-size: 17px; line-height: 1.2 }
+.cta-row .free { font-weight: 600 }
+.promise { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px }
+.promise li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 12px; border-radius: 999px; background: var(--card); color: var(--ink);
+  font: 700 17px/1.2 var(--display); white-space: nowrap; box-shadow: 0 8px 20px -12px oklch(30% 0.1 300 / .5) }
+.promise svg { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round }
+.price .promise { margin-top: 16px }
+.price .promise li { background: var(--paper); box-shadow: none; border: 1px solid var(--line) }
+.heroes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr); grid-template-areas: "a o b"; gap: 24px 40px; align-items: center; margin-top: clamp(56px, 7vw, 88px) }
+.heroes figure { margin: 0; display: grid; gap: 12px; justify-items: center; text-align: center }
+.heroes figure:first-child { grid-area: a } .heroes figure:last-child { grid-area: b } .heroes .or { grid-area: o; text-align: center }
+.heroes img { width: 100%; max-width: 250px; height: auto; padding: 18px 20px 0; box-sizing: border-box;
+  background: radial-gradient(circle at 50% 58%, var(--dusk-a) 0 52%, transparent 53%) }
+.heroes figcaption { display: grid } .heroes figcaption b { font: 800 22px/1.2 var(--display) } .heroes figcaption span { color: var(--mute); font-size: 15px }
+.heroes h3 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800 }
+.heroes p { color: var(--mute); margin: 12px auto 0; max-width: 36ch }
+.chips { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px }
+.chips li { padding: 6px 12px; border-radius: 999px; background: oklch(100% 0 0 / .55); font-size: 14px; font-weight: 500; white-space: nowrap }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chips li, :root:not([data-theme="light"]) .langs { background: oklch(0% 0 0 / .25) } }
+:root[data-theme="dark"] .chips li, :root[data-theme="dark"] .langs { background: oklch(0% 0 0 / .25) }
+.clip { position: relative }
+.clip video, .clip img.poster { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px; box-shadow: 0 40px 80px -30px oklch(30% 0.12 300 / .55) }
+.clip figcaption { font-size: 14px; color: var(--ink); margin-top: 12px; opacity: .8 }
+
+/* ---- episodes ---- */
+.section { padding-block: clamp(64px, 9vw, 112px) }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; margin-bottom: 32px }
+.head h2 { font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 800 }
+.head p { margin: 0; color: var(--mute); max-width: 44ch }
+.shelf { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: 18px; overflow-x: auto; padding: 4px 4px 20px; scroll-snap-type: x mandatory; scrollbar-width: thin }
+.ep { scroll-snap-align: start; margin: 0 }
+.ep img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 20px; transition: transform .35s var(--ease-out) }
+.ep:hover img { transform: translateY(-4px) rotate(-1deg) }
+.ep figcaption { margin-top: 12px; display: grid; gap: 2px }
+.ep figcaption span { font-size: 13px; color: var(--mute); font-weight: 600; display: flex; gap: 8px; align-items: center }
+.ep figcaption b { font: 700 19px/1.2 var(--display) }
+.cover { position: relative; overflow: hidden; border-radius: 20px }
+.ribbon { position: absolute; top: 22px; left: -38px; width: 150px; transform: rotate(-45deg); text-align: center; padding: 5px 0;
+  background: var(--accent); color: var(--accent-ink); font: 800 14px/1.2 var(--display); letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 6px 14px -6px oklch(20% 0.1 300 / .6) }
+
+/* ---- chalkboard ---- */
+.board { background: var(--board); color: var(--chalk); background-image: radial-gradient(50rem 24rem at 20% 0%, var(--board-2), transparent 70%) }
+.board .head p { color: var(--chalk-mute) }
+.board h2 { color: var(--chalk) }
+.board h2 u { text-decoration: none; background: linear-gradient(transparent 70%, oklch(84% 0.15 85 / .55) 70%) }
+.trio { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 40px 28px }
+.trio > figure { grid-column: span 2 }
+.trio > figure.wide { grid-column: span 3 }
+.trio .art { aspect-ratio: 4 / 3; border-radius: 20px; display: grid; place-content: center; gap: 18px; padding: 24px; text-align: center }
+.wide .art { aspect-ratio: 16 / 9 }
+.clap { background: var(--board-2); border: 2px solid oklch(97% 0.012 100 / .15) }
+.clap small { color: var(--chalk-mute); font-size: 15px }
+.clap .word { font: 800 clamp(2.2rem, 4.4vw, 3.4rem)/1 var(--display); color: var(--chalk); letter-spacing: .01em }
+.clap .word i { font-style: normal; color: var(--chalk-mute); padding: 0 .12em }
+.clap .beats { display: flex; justify-content: center; gap: 14px }
+.clap .beats span { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--sun); color: var(--board); font: 800 18px var(--display) }
+.syl { background: var(--page); color: var(--page-ink); text-align: left; place-content: center start }
+.syl p { margin: 0; font: 700 clamp(1.4rem, 2.6vw, 2rem)/1.5 var(--display) }
+.syl .b { color: var(--syl-blue) } .syl .r { color: var(--syl-red) }
+.syl small { font: 500 14px var(--body); color: var(--page-mute) }
+.trio figure { margin: 0; display: grid; gap: 16px; align-content: start }
+.trio img, .trio video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; border: 2px solid oklch(97% 0.012 100 / .15) }
+.trio h3 { font-size: 24px; font-weight: 700 }
+.trio p { margin: 6px 0 0; color: var(--chalk-mute) }
+
+/* ---- parents ---- */
+.parents { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px 64px; align-items: start }
+.parents h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 800 }
+.parents .lede { color: var(--mute); margin: 16px 0 0; max-width: 46ch; font-size: 18px }
+.checks { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px }
+.checks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start }
+.checks svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round }
+.checks b { display: block }
+.checks span { color: var(--mute) }
+.gate { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 12px }
+.gate img { border-radius: 16px; width: 100%; height: auto }
+.gate figcaption { padding: 12px 6px 4px; color: var(--mute); font-size: 15px }
+.price { margin-top: 28px; padding: 20px 22px; border-radius: 20px; background: var(--card); border: 1px solid var(--line) }
+.price b { font: 700 20px/1.2 var(--display) }
+.price p { margin: 4px 0 0; color: var(--mute) }
+
+/* ---- policy + support ---- */
+.doc-band { background: var(--card); border-top: 1px solid var(--line) }
+.doc { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 32px 64px }
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; display: grid; gap: 8px }
+.toc h2 { font-size: 28px; font-weight: 800 }
+.toc p { margin: 0; color: var(--mute); font-size: 15px }
+.toc a { font-weight: 600; text-decoration: none }
+.policy { max-width: 68ch }
+.policy h2 { font-size: 30px; font-weight: 800; margin: 0 0 12px }
+.policy h3 { font: 600 19px/1.3 var(--body); margin: 28px 0 6px }
+.policy p, .policy li { color: var(--ink) }
+.policy ul { padding-left: 1.2em } .policy li { margin: 4px 0 }
+.policy .short { font-size: 19px; padding: 16px 20px; border-radius: 16px; background: var(--paper); border: 1px solid var(--line) }
+.support { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--line) }
+
+/* ---- closing ---- */
+.closing { position: relative }
+.closing img { width: 100%; height: clamp(220px, 34vw, 420px); object-fit: cover; object-position: 50% 40% }
+.foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 24px 40px; color: var(--mute); font-size: 15px }
+.foot a { color: var(--ink); white-space: nowrap }
+
+@media (max-width: 860px) {
+  .hero, .head, .parents, .doc { grid-template-columns: minmax(0, 1fr) }
+  .heroes { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "o o" "a b" }
+  .trio { grid-template-columns: minmax(0, 1fr) }
+  .trio > figure, .trio > figure.wide { grid-column: auto }
+  .toc { position: static }
+  .top nav > a { display: none }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important }
+}
 </style>
+
 </head>
 <body>
-<header class="hero"><img src="icon.png" alt="" width="96" height="96"><div><h1>Lumina: Die Kreide-Heldin</h1>
-<p class="muted">Lumina: The Chalk Hero · iPhone &amp; iPad · Stand / Last updated: 26.10.2026</p></div></header>
-<img class="scene" src="finale.jpg" width="1600" height="892" alt="Lina winkt am Seefest, umgeben von Familie und Freunden / Lina waving at the lake festival with her family and friends">
-<nav><a href="#de">Deutsch</a><a href="#en">English</a><a href="#support">Support</a></nav>
+<div class="hero-band">
+  <div class="gut"><div class="in">
+    <header class="top">
+      <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="40" height="40">Lumina</a>
+      <nav aria-label="Seite / Page">
+        <a href="#parents"><span lang="de">Für Eltern</span><span lang="en">For parents</span></a>
+        <a href="#privacy"><span lang="de">Datenschutz</span><span lang="en">Privacy</span></a>
+        <a href="#support">Support</a>
+        <div class="langs" role="group" aria-label="Sprache / Language"><button type="button" data-set="de">DE</button><button type="button" data-set="en">EN</button></div>
+      </nav>
+    </header>
+    <section class="hero" id="top">
+      <div>
+        <h1><span lang="de">Was Lina zeichnet, wird <em>lebendig</em>.</span><span lang="en">Whatever Lina draws <em>comes alive</em>.</span></h1>
+        <p class="lede"><span lang="de">Lina zieht nach Sonnwil und findet auf Omas Dachboden eine leuchtende Kreide. Eine Geschichte in acht Folgen für Kinder von 6 bis 8.</span><span lang="en">Lina moves to Sonnwil and finds a glowing chalk in Grandma's attic. A story in eight episodes for children aged 6 to 8.</span></p>
+        <div class="cta-row">
+          <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.1 5.8c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>
+            <span><small lang="de">Bald im</small><small lang="en">Coming soon to the</small><b>App Store</b></span></span>
+          <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.2c-.3.3-.5.8-.5 1.4v14.8c0 .6.2 1.1.5 1.4l8.3-8.8L5 3.2zm9.4 7.6 2.6-2.7L6.6 2.3c-.3-.2-.6-.2-.9-.2l8.7 8.7zm0 2.4-8.7 8.7c.3 0 .6 0 .9-.2l10.4-5.8-2.6-2.7zm3.8-3.8-2.8 2.6 2.8 2.6 2.9-1.6c.8-.5.8-1.6 0-2l-2.9-1.6z"/></svg>
+            <span><small lang="de">Bald bei</small><small lang="en">Coming soon to</small><b>Google Play</b></span></span>
+          <span class="free"><span lang="de">Folge 1 gratis</span><span lang="en">Episode 1 is free</span></span>
+        </div>
+        <ul class="promise">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Kein Abo</span><span lang="en">No subscription</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Keine Werbung</span><span lang="en">No ads</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></li>
+        </ul>
+        <ul class="chips">
+          <!-- Lino option: show once it is in a release build -->
+          <li hidden><span lang="de">Mit Lina oder Lino</span><span lang="en">Play as Lina or Lino</span></li>
+          <li>iPhone &amp; iPad</li>
+          <li><span lang="de">Deutsch &amp; Englisch</span><span lang="en">German &amp; English</span></li>
+        </ul>
+      </div>
+      <figure class="clip" style="margin:0">
+        <video src="assets/vid_transform.mp4" poster="assets/vid_transform.jpg" autoplay muted loop playsinline aria-label="Lina verwandelt sich in Lumina / Lina turns into Lumina"></video>
+        <figcaption><span lang="de">Ein Stern mit der Kreide, und aus Lina wird Lumina.</span><span lang="en">One chalk star, and Lina becomes Lumina.</span></figcaption>
+      </figure>
+    </section>
+  </div></div>
+</div>
 
-<section id="de" lang="de">
-<h2>Datenschutzerklärung</h2>
-<p><strong>Kurz gesagt: Lumina sammelt keine Daten.</strong> Die App ist für Kinder von 6 bis 8 Jahren gemacht und funktioniert vollständig ohne Internet.</p>
+<section class="section gut" aria-labelledby="eps"><div class="in">
+  <div class="head">
+    <h2 id="eps"><span lang="de">Acht Folgen in Sonnwil</span><span lang="en">Eight episodes in Sonnwil</span></h2>
+    <p><span lang="de">Neue Schule, neue Freunde, eine kleine Lüge und ein grosser Grummel. Jede Folge erzählt von Mut, Freundschaft oder Ehrlichkeit.</span><span lang="en">A new school, new friends, a little lie and a big grumble. Each episode is about courage, friendship or honesty.</span></p>
+  </div>
+  <div class="shelf">
+    <figure class="ep"><div class="cover"><img src="assets/cover1.jpg" alt="" loading="lazy"><span class="ribbon"><span lang="de">Gratis</span><span lang="en">Free</span></span></div><figcaption><span>1</span><b><span lang="de">Neue Stadt, neue Schule</span><span lang="en">New Town, New School</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover2.jpg" alt="" loading="lazy"><figcaption><span>2</span><b><span lang="de">Allein in der Pause</span><span lang="en">Alone at Break</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover3.jpg" alt="" loading="lazy"><figcaption><span>3</span><b><span lang="de">Der neue Junge</span><span lang="en">The New Boy</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover4.jpg" alt="" loading="lazy"><figcaption><span>4</span><b><span lang="de">Wo ist Hamster Hugo?</span><span lang="en">Where Is Hugo the Hamster?</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover5.jpg" alt="" loading="lazy"><figcaption><span>5</span><b><span lang="de">Die kleine Lüge</span><span lang="en">The Little Lie</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover6.jpg" alt="" loading="lazy"><figcaption><span>6</span><b><span lang="de">Gewitter auf dem Ausflug</span><span lang="en">Storm on the School Trip</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover7.jpg" alt="" loading="lazy"><figcaption><span>7</span><b><span lang="de">Omas Geheimnis</span><span lang="en">Grandma's Secret</span></b></figcaption></figure>
+    <figure class="ep"><img src="assets/cover8.jpg" alt="" loading="lazy"><figcaption><span>8</span><b><span lang="de">Der grosse Grummel</span><span lang="en">The Big Grumble</span></b></figcaption></figure>
+  </div>
+  <!-- Lino option: remove "hidden" once it is in a release build -->
+  <div class="heroes" hidden>
+    <figure><img src="assets/lumina_cheer.png" alt="Lumina / Lumina" width="427" height="560" loading="lazy"><figcaption><b>Lina → Lumina</b><span lang="de">die Kreide-Heldin</span><span lang="en">the Chalk Hero</span></figcaption></figure>
+    <div class="or"><h3><span lang="de">Lina oder Lino?</span><span lang="en">Lina or Lino?</span></h3><p><span lang="de">Ihr Kind wählt, wer die Geschichte erlebt: Lina, die zu Lumina wird, oder Lino, der zu Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Your child chooses who lives the story: Lina, who becomes Lumina, or Lino, who becomes Lumino. The same story, each hero with their own voice.</span></p></div>
+    <figure><img src="assets/lumina_cheer__boy.png" alt="Lumino / Lumino" width="427" height="560" loading="lazy"><figcaption><b>Lino → Lumino</b><span lang="de">der Kreide-Held</span><span lang="en">the Chalk Hero</span></figcaption></figure>
+  </div>
+</div></section>
 
-<h3>1. Verantwortlich</h3>
-<p>Boris Stiner, Schweiz · E-Mail: <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a></p>
+<section class="board section gut" aria-labelledby="play"><div class="in">
+  <div class="head">
+    <h2 id="play"><span lang="de">Malen, lesen, <u>mutig sein</u></span><span lang="en">Draw, read and <u>be brave</u></span></h2>
+    <p><span lang="de">Zwischen den Bildern greift Ihr Kind selbst zur Kreide. Ohne Zeitdruck und ohne Punkteverlust.</span><span lang="en">Between the pictures, your child picks up the chalk. No timer, nothing to lose.</span></p>
+  </div>
+  <div class="trio">
+    <figure><img src="assets/03_star.jpg" alt="" loading="lazy"><figcaption><h3><span lang="de">Den Stern zeichnen</span><span lang="en">Draw the star</span></h3><p><span lang="de">Mit dem Finger der Linie folgen, und Lina verwandelt sich.</span><span lang="en">Trace the line with a finger and Lina transforms.</span></p></figcaption></figure>
+    <figure><img src="assets/04_letters.jpg" alt="" loading="lazy"><figcaption><h3><span lang="de">Buchstaben schreiben</span><span lang="en">Write letters</span></h3><p><span lang="de">Erste Wörter Strich für Strich, wie an der Wandtafel.</span><span lang="en">First words stroke by stroke, like on the blackboard.</span></p></figcaption></figure>
+    <figure><video src="assets/vid_chest.mp4" poster="assets/vid_chest.jpg" autoplay muted loop playsinline aria-label="Lina öffnet die Truhe / Lina opens the chest"></video><figcaption><h3><span lang="de">Zuhören und mitreden</span><span lang="en">Listen and choose</span></h3><p><span lang="de">Jede Zeile wird vorgelesen. Ihr Kind entscheidet mit, was Lina tut.</span><span lang="en">Every line is read aloud. Your child helps decide what Lina does.</span></p></figcaption></figure>
+    <figure class="wide"><div class="art clap" role="img" aria-label="Schmet-ter-ling: drei Silben, dreimal klatschen / But-ter-fly: three syllables, three claps">
+        <small><span lang="de">Bei jeder Silbe klatschst du einmal.</span><span lang="en">Clap once for every syllable.</span></small>
+        <div class="word"><span lang="de">Schmet<i>·</i>ter<i>·</i>ling</span><span lang="en">But<i>·</i>ter<i>·</i>fly</span></div>
+        <div class="beats" aria-hidden="true"><span>1</span><span>2</span><span>3</span></div></div>
+      <figcaption><h3><span lang="de">Silben klatschen</span><span lang="en">Clap the syllables</span></h3><p><span lang="de">Oma spricht ein Wort vor, Ihr Kind klatscht jede Silbe mit. So wird Lesen zum Rhythmus.</span><span lang="en">Grandma says a word and your child claps along, once per syllable. Reading becomes a rhythm.</span></p></figcaption></figure>
+    <figure class="wide"><div class="art syl" role="img" aria-label="Text mit farbigen Silben / Text with coloured syllables">
+        <p><span class="b">Li</span><span class="r">na</span> <span class="b">fin</span><span class="r">det</span> <span class="b">auf</span> <span class="b">dem</span> <span class="b">Dach</span><span class="r">bo</span><span class="b">den</span> <span class="b">ei</span><span class="r">ne</span> <span class="b">leuch</span><span class="r">ten</span><span class="b">de</span> <span class="b">Krei</span><span class="r">de</span>.</p></div>
+      <figcaption><h3><span lang="de">Farbige Silben</span><span lang="en">Coloured syllables</span></h3><p><span lang="de">Der deutsche Text zeigt die Silben abwechselnd blau und rot, wie in Erstlese-Büchern. Im Elternbereich abschaltbar.</span><span lang="en">The German text shows syllables in alternating blue and red, like first-reader books. You can turn it off in the Parent Area.</span></p></figcaption></figure>
+  </div>
+</div></section>
 
-<h3>2. Welche Daten wir erheben</h3>
-<p>Keine. Lumina erhebt, speichert, überträgt oder verkauft keine personenbezogenen Daten – weder von Kindern noch von Erwachsenen. Insbesondere:</p>
-<ul>
-  <li>kein Konto, keine Anmeldung, keine Eingabe von Namen, E-Mail-Adressen oder Fotos;</li>
-  <li>keine Werbung, kein Tracking, keine Analyse- oder Absturzberichts-Dienste, keine Software von Drittanbietern (SDKs);</li>
-  <li>keine Internetverbindung: die App sendet nichts an uns oder an Dritte;</li>
-  <li>kein Zugriff auf Mikrofon, Kamera, Standort, Kontakte, Fotos oder Mitteilungen.</li>
-</ul>
+<section class="section gut" id="parents" aria-labelledby="par"><div class="in parents">
+  <div>
+    <h2 id="par"><span lang="de">Für Eltern: Lumina sammelt keine Daten.</span><span lang="en">For parents: Lumina collects no data.</span></h2>
+    <p class="lede"><span lang="de">Die App ist für die Kategorie „Kinder“ im App Store gemacht und funktioniert vollständig ohne Internet.</span><span lang="en">Made for the App Store Kids category, and it works entirely offline.</span></p>
+    <ul class="checks">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></b><span lang="de">Im Zug, im Flugzeug, in den Ferien. Kein WLAN nötig.</span><span lang="en">On the train, on a plane, on holiday. No Wi-Fi needed.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Kein Konto, keine Werbung, kein Tracking</span><span lang="en">No account, no ads, no tracking</span></b><span lang="de">Keine Software von Drittanbietern.</span><span lang="en">No third-party software.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Keine Berechtigungen</span><span lang="en">No permissions</span></b><span lang="de">Kein Mikrofon, keine Kamera, kein Standort, keine Mitteilungen.</span><span lang="en">No microphone, camera, location or notifications.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Käufe nur hinter der Eltern-Sperre</span><span lang="en">Purchases only behind the parental gate</span></b><span lang="de">Ihr Kind sieht nie einen Preis.</span><span lang="en">Your child never sees a price.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Familienfreigabe</span><span lang="en">Family Sharing</span></b><span lang="de">Einmal kaufen, auf allen Geräten der Familie spielen.</span><span lang="en">Buy once, play on every device in the family.</span></div></li>
+    </ul>
+    <div class="price"><b><span lang="de">Folge 1 ist gratis.</span><span lang="en">Episode 1 is free.</span></b><p><span lang="de">Die Folgen 2 bis 8 kaufen Sie einmalig, einzeln oder alle zusammen.</span><span lang="en">Episodes 2 to 8 are a one-time purchase, one by one or all together.</span></p>
+      <ul class="promise">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Kein Abo</span><span lang="en">No subscription</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Keine Werbung</span><span lang="en">No ads</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></li>
+      </ul></div>
+  </div>
+  <figure class="gate"><img src="assets/08_gate.jpg" alt="Eltern-Sperre: eine ausgeschriebene Zahl als Ziffern eintippen / Parental gate: type a number written in words as digits" loading="lazy" width="1000" height="690">
+    <figcaption><span lang="de">Die Eltern-Sperre: eine ausgeschriebene Zahl als Ziffern eintippen, dann «Weiter» gedrückt halten.</span><span lang="en">The parental gate: type a number written out in words as digits, then hold "Continue".</span></figcaption></figure>
+</div></section>
 
-<h3>3. Was auf dem Gerät gespeichert wird</h3>
-<p>Der Spielstand (gespielte Folgen, gesammelte Sterne, Sticker, Farben der Heldin, Sprache und Einstellungen) wird nur lokal auf dem Gerät gespeichert. Wir haben keinen Zugriff darauf. Beim Löschen der App wird er vollständig entfernt.</p>
+<section class="doc-band section gut" id="privacy"><div class="in doc">
+  <aside class="toc">
+    <h2><span lang="de">Datenschutz &amp; Support</span><span lang="en">Privacy &amp; Support</span></h2>
+    <p><span lang="de">Stand: 26.10.2026</span><span lang="en">Last updated: 26 October 2026</span></p>
+    <a href="#support">Support ↓</a>
+  </aside>
+  <div class="policy">
+    <section id="de" lang="de">
+      <h2>Datenschutzerklärung</h2>
+      <p class="short"><strong>Kurz gesagt: Lumina sammelt keine Daten.</strong> Die App ist für Kinder von 6 bis 8 Jahren gemacht und funktioniert vollständig ohne Internet.</p>
+      <h3>1. Verantwortlich</h3>
+      <p>Boris Stiner, Schweiz · E-Mail: <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a></p>
+      <h3>2. Welche Daten wir erheben</h3>
+      <p>Keine. Lumina erhebt, speichert, überträgt oder verkauft keine personenbezogenen Daten – weder von Kindern noch von Erwachsenen. Insbesondere:</p>
+      <ul>
+        <li>kein Konto, keine Anmeldung, keine Eingabe von Namen, E-Mail-Adressen oder Fotos;</li>
+        <li>keine Werbung, kein Tracking, keine Analyse- oder Absturzberichts-Dienste, keine Software von Drittanbietern (SDKs);</li>
+        <li>keine Internetverbindung: die App sendet nichts an uns oder an Dritte;</li>
+        <li>kein Zugriff auf Mikrofon, Kamera, Standort, Kontakte, Fotos oder Mitteilungen.</li>
+      </ul>
+      <h3>3. Was auf dem Gerät gespeichert wird</h3>
+      <p>Der Spielstand (gespielte Folgen, gesammelte Sterne, Sticker, Farben der Heldin, Sprache und Einstellungen) wird nur lokal auf dem Gerät gespeichert. Wir haben keinen Zugriff darauf. Beim Löschen der App wird er vollständig entfernt.</p>
+      <h3>4. Käufe</h3>
+      <p>Folge 1 ist gratis. Weitere Folgen können im Elternbereich gekauft werden, der durch eine Eltern-Sperre geschützt ist. Käufe werden ausschliesslich von Apple über den App Store abgewickelt; es gelten die <a href="https://www.apple.com/legal/privacy/">Datenschutzbestimmungen von Apple</a>. Wir erhalten dabei keine persönlichen Daten, sondern nur die anonyme Bestätigung, dass ein Kauf auf diesem Gerät gültig ist.</p>
+      <h3>5. Kinder</h3>
+      <p>Lumina ist in der Kategorie „Kinder“ des App Store. Weil wir keine Daten erheben, werden auch keine Daten von Kindern erhoben, verwendet oder weitergegeben. Käufe, Bewertungen und Links aus der App heraus sind nur im Elternbereich hinter einer Eltern-Sperre erreichbar.</p>
+      <h3>6. Ihre Rechte</h3>
+      <p>Da wir keine personenbezogenen Daten verarbeiten, gibt es nichts, was wir auskunften, berichtigen oder löschen könnten. Für Fragen zum Datenschutz (DSG, DSGVO, COPPA) erreichen Sie uns jederzeit unter der oben genannten E-Mail-Adresse. Wenn Sie uns eine E-Mail schreiben, verwenden wir Ihre Adresse nur, um zu antworten.</p>
+      <h3>7. Änderungen</h3>
+      <p>Ändert sich etwas an dieser Erklärung, aktualisieren wir diese Seite und das Datum oben.</p>
+    </section>
+    <section id="en" lang="en">
+      <h2>Privacy Policy</h2>
+      <p class="short"><strong>In short: Lumina collects no data.</strong> The app is made for children aged 6 to 8 and works entirely offline.</p>
+      <h3>1. Who is responsible</h3>
+      <p>Boris Stiner, Switzerland · Email: <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a></p>
+      <h3>2. What data we collect</h3>
+      <p>None. Lumina does not collect, store, transmit or sell any personal data, from children or from adults. In particular:</p>
+      <ul>
+        <li>no account, no sign-in, no entry of names, email addresses or photos;</li>
+        <li>no advertising, no tracking, no analytics or crash-reporting services, no third-party software (SDKs);</li>
+        <li>no internet connection: the app sends nothing to us or to anyone else;</li>
+        <li>no access to the microphone, camera, location, contacts, photos or notifications.</li>
+      </ul>
+      <h3>3. What is stored on the device</h3>
+      <p>Progress (episodes played, stars, stickers, hero colours, language and settings) is stored only locally on the device. We have no access to it. Deleting the app removes it completely.</p>
+      <h3>4. Purchases</h3>
+      <p>Episode 1 is free. More episodes can be bought in the Parent Area, which is protected by a parental gate. Purchases are handled entirely by Apple through the App Store and are subject to <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. We receive no personal data, only an anonymous confirmation that a purchase is valid on this device.</p>
+      <h3>5. Children</h3>
+      <p>Lumina is listed in the App Store Kids category. Because we collect no data, no data from children is collected, used or shared. Purchases, ratings and any links out of the app are only reachable in the Parent Area behind a parental gate.</p>
+      <h3>6. Your rights</h3>
+      <p>Since we process no personal data, there is nothing for us to disclose, correct or delete. For any privacy question (Swiss FADP, GDPR, COPPA) you can reach us at any time at the email address above. If you email us, we use your address only to reply.</p>
+      <h3>7. Changes</h3>
+      <p>If anything in this policy changes, we update this page and the date at the top.</p>
+    </section>
 
-<h3>4. Käufe</h3>
-<p>Folge 1 ist gratis. Weitere Folgen können im Elternbereich gekauft werden, der durch eine Eltern-Sperre geschützt ist. Käufe werden ausschliesslich von Apple über den App Store abgewickelt; es gelten die <a href="https://www.apple.com/legal/privacy/">Datenschutzbestimmungen von Apple</a>. Wir erhalten dabei keine persönlichen Daten, sondern nur die anonyme Bestätigung, dass ein Kauf auf diesem Gerät gültig ist.</p>
+    <section class="support" id="support">
+      <h2>Support</h2>
+      <div lang="de">
+        <p>Fragen, Probleme oder Ideen? Schreiben Sie an <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>, wir antworten in der Regel innerhalb von zwei Tagen.</p>
+        <ul>
+          <li><strong>Käufe wiederherstellen:</strong> Elternbereich (Zahnrad) öffnen → „Käufe wiederherstellen“. Mit der Familienfreigabe funktionieren Käufe auf allen Geräten der Familie.</li>
+          <li><strong>Sprache:</strong> Deutsch oder Englisch im Elternbereich wählen.</li>
+          <li><strong>Erstattung:</strong> über <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (wird von Apple bearbeitet).</li>
+        </ul>
+      </div>
+      <div lang="en">
+        <p>Questions, problems or ideas? Email <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>; we usually reply within two days.</p>
+        <ul>
+          <li><strong>Restore purchases:</strong> open the Parent Area (gear icon) → “Restore purchases”. With Family Sharing, purchases work on every device in the family.</li>
+          <li><strong>Language:</strong> choose German or English in the Parent Area.</li>
+          <li><strong>Refunds:</strong> via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (handled by Apple).</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div></section>
 
-<h3>5. Kinder</h3>
-<p>Lumina ist in der Kategorie „Kinder“ des App Store. Weil wir keine Daten erheben, werden auch keine Daten von Kindern erhoben, verwendet oder weitergegeben. Käufe, Bewertungen und Links aus der App heraus sind nur im Elternbereich hinter einer Eltern-Sperre erreichbar.</p>
+<footer class="closing">
+  <img src="assets/finale.jpg" alt="Lina winkt am Seefest, umgeben von Familie und Freunden / Lina waving at the lake festival with her family and friends" loading="lazy">
+  <div class="gut"><div class="in foot"><span>© 2026 Boris Stiner</span><a href="https://apps.borisstiner.com/"><span lang="de">Weitere Apps</span><span lang="en">More apps</span> →</a></div></div>
+</footer>
 
-<h3>6. Ihre Rechte</h3>
-<p>Da wir keine personenbezogenen Daten verarbeiten, gibt es nichts, was wir auskunften, berichtigen oder löschen könnten. Für Fragen zum Datenschutz (DSG, DSGVO, COPPA) erreichen Sie uns jederzeit unter der oben genannten E-Mail-Adresse. Wenn Sie uns eine E-Mail schreiben, verwenden wir Ihre Adresse nur, um zu antworten.</p>
-
-<h3>7. Änderungen</h3>
-<p>Ändert sich etwas an dieser Erklärung, aktualisieren wir diese Seite und das Datum oben.</p>
-</section>
-
-<section id="en" lang="en">
-<h2>Privacy Policy</h2>
-<p><strong>In short: Lumina collects no data.</strong> The app is made for children aged 6 to 8 and works entirely offline.</p>
-
-<h3>1. Who is responsible</h3>
-<p>Boris Stiner, Switzerland · Email: <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a></p>
-
-<h3>2. What data we collect</h3>
-<p>None. Lumina does not collect, store, transmit or sell any personal data, from children or from adults. In particular:</p>
-<ul>
-  <li>no account, no sign-in, no entry of names, email addresses or photos;</li>
-  <li>no advertising, no tracking, no analytics or crash-reporting services, no third-party software (SDKs);</li>
-  <li>no internet connection: the app sends nothing to us or to anyone else;</li>
-  <li>no access to the microphone, camera, location, contacts, photos or notifications.</li>
-</ul>
-
-<h3>3. What is stored on the device</h3>
-<p>Progress (episodes played, stars, stickers, hero colours, language and settings) is stored only locally on the device. We have no access to it. Deleting the app removes it completely.</p>
-
-<h3>4. Purchases</h3>
-<p>Episode 1 is free. More episodes can be bought in the Parent Area, which is protected by a parental gate. Purchases are handled entirely by Apple through the App Store and are subject to <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. We receive no personal data, only an anonymous confirmation that a purchase is valid on this device.</p>
-
-<h3>5. Children</h3>
-<p>Lumina is listed in the App Store Kids category. Because we collect no data, no data from children is collected, used or shared. Purchases, ratings and any links out of the app are only reachable in the Parent Area behind a parental gate.</p>
-
-<h3>6. Your rights</h3>
-<p>Since we process no personal data, there is nothing for us to disclose, correct or delete. For any privacy question (Swiss FADP, GDPR, COPPA) you can reach us at any time at the email address above. If you email us, we use your address only to reply.</p>
-
-<h3>7. Changes</h3>
-<p>If anything in this policy changes, we update this page and the date at the top.</p>
-</section>
-
-<section id="support">
-<h2>Support</h2>
-<p><strong>Deutsch:</strong> Fragen, Probleme oder Ideen? Schreiben Sie an <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>, wir antworten in der Regel innerhalb von zwei Tagen.</p>
-<ul>
-  <li><strong>Käufe wiederherstellen:</strong> Elternbereich (Zahnrad) öffnen → „Käufe wiederherstellen“. Mit der Familienfreigabe funktionieren Käufe auf allen Geräten der Familie.</li>
-  <li><strong>Sprache:</strong> Deutsch oder Englisch im Elternbereich wählen.</li>
-  <li><strong>Erstattung:</strong> über <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (wird von Apple bearbeitet).</li>
-</ul>
-<p><strong>English:</strong> Questions, problems or ideas? Email <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>; we usually reply within two days.</p>
-<ul>
-  <li><strong>Restore purchases:</strong> open the Parent Area (gear icon) → “Restore purchases”. With Family Sharing, purchases work on every device in the family.</li>
-  <li><strong>Language:</strong> choose German or English in the Parent Area.</li>
-  <li><strong>Refunds:</strong> via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (handled by Apple).</li>
-</ul>
-</section>
-
-<p class="muted">© 2026 Boris Stiner</p>
+<script>
+  const root = document.documentElement;
+  root.classList.add('js');
+  function setLang(l) {
+    root.dataset.lang = l;
+    document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l));
+    try { localStorage.setItem('lumina-lang', l) } catch (e) {}
+  }
+  let saved = null; try { saved = localStorage.getItem('lumina-lang') } catch (e) {}
+  // the old page linked #de / #en; those links keep choosing the language
+  const fromHash = { '#de': 'de', '#en': 'en' }[location.hash];
+  setLang(fromHash || saved || ((navigator.language || 'en').toLowerCase().startsWith('de') ? 'de' : 'en'));
+  document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+</script>
 </body>
 </html>
