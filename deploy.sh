@@ -8,8 +8,11 @@ REMOTE_ROOT="/home/jupubozi/public_html/apps.borisstiner.com"
 
 cd "$(dirname "$0")"
 
-# --chmod: the webroot must stay readable for the web server, whatever the local folder mode is.
-rsync -avz --delete --chmod=D755,F644 --exclude .git --exclude .nojekyll --exclude deploy.sh \
+rsync -avz --delete --exclude .git --exclude .nojekyll --exclude deploy.sh \
     ./ "$SSH_TARGET:$REMOTE_ROOT/"
+
+# The webroot must stay readable for the web server, whatever mode the local folder has
+# (macOS rsync has no --chmod).
+ssh "$SSH_TARGET" "chmod 755 $REMOTE_ROOT && find $REMOTE_ROOT -mindepth 1 -type d -exec chmod 755 {} + && find $REMOTE_ROOT -type f -exec chmod 644 {} +"
 
 echo "Deployed to https://apps.borisstiner.com"
