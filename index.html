@@ -1,35 +1,98 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Boris Stiner Apps</title><meta name="description" content="Apps by Boris Stiner.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boris Stiner Apps</title><meta name="description" content="Small apps by Boris Stiner. Each one does a single thing properly.">
+<meta name="theme-color" content="#f3f4fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="app-icons/hitori.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Geist:wght@400;500&display=swap">
 <style>
-:root { --accent:#2E3A93; --paper:#F3EFE4; --ink:#1d1a17; --muted:#5d5852; --card:#fffdf9; --rule:#e3ddd2;
-  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif; --body:"Instrument Sans","Helvetica Neue",system-ui,sans-serif; }
-@media (prefers-color-scheme: dark) { :root { --paper:#16140f; --ink:#f1ece4; --muted:#b0a89c; --card:#211e18; --rule:#36312a; color-scheme:dark } }
-html,body { overflow-x:clip }
-body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.6 var(--body); }
-.wrap { max-width:760px; margin:0 auto; padding:48px max(20px, env(safe-area-inset-left)) 72px; display:grid; gap:32px }
-a { color:var(--accent) } a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; border-radius:4px }
-h1,h2,h3 { font-family:var(--display); line-height:1.1; text-wrap:balance; margin:0 }
-h1 { font-size:clamp(2rem,6vw,3rem); font-weight:800; letter-spacing:-.02em; overflow-wrap:anywhere }
-h2 { font-size:1.35rem; font-weight:800; margin-top:8px }
-.hero { display:flex; gap:22px; align-items:center; flex-wrap:wrap }
-.hero img { width:112px; height:112px; border-radius:25px; box-shadow:0 10px 30px color-mix(in srgb,var(--accent) 30%,transparent) }
-.hero div { min-width:0; flex:1 }
-.sub { color:var(--muted); font-size:1.15rem; margin:6px 0 0 }
-.card { background:var(--card); border:1px solid var(--rule); border-radius:20px; padding:24px; display:grid; gap:12px }
-ul { margin:0; padding-left:1.2em } li { margin:4px 0 }
-.pro { border-color:color-mix(in srgb,var(--accent) 45%,var(--rule)) }
-.mail { font:600 1.1rem var(--body); user-select:all; }
-.apps { display:grid; gap:14px }
-.app { display:flex; gap:16px; align-items:center; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--rule); border-radius:18px; padding:14px }
-.app:hover { border-color:var(--accent) }
-.app img { width:64px; height:64px; border-radius:15px }
-.app b { font-family:var(--display); font-size:1.15rem; display:block } .app span { color:var(--muted) }
-footer { color:var(--muted); font-size:.9rem; display:flex; gap:16px; flex-wrap:wrap }
-</style></head><body><main class="wrap"><header><h1>Small apps that do one job well</h1>
-<p class="sub">Apps by Boris Stiner.</p></header>
-<nav class="apps" aria-label="Apps"><a class="app" href="lumina/" style="--accent:#7b4fc4"><img src="app-icons/lumina.png" alt="" width="64" height="64"><div><b>Lumina: The Chalk Hero</b><span>Story app for kids 6–8 · Deutsch &amp; English</span></div></a><a class="app" href="https://kladde.ch" style="--accent:#E8553A"><img src="app-icons/kladde.png" alt="" width="64" height="64"><div><b>Kladde</b><span>Handwritten recipes become a searchable digital cookbook</span></div></a><a class="app" href="https://markmyhours.com" style="--accent:#2F8F5B"><img src="app-icons/markmyhours.png" alt="" width="64" height="64"><div><b>Mark My Hours</b><span>Automatic work-hours tracking by GPS, monthly PDF timesheet</span></div></a><a class="app" href="https://naipano.com" style="--accent:#0A8784"><img src="app-icons/naipano.png" alt="" width="64" height="64"><div><b>Naipano</b><span>Publish 360° virtual tours of properties and holiday rentals</span></div></a></nav>
-<section class="card"><h2>Contact</h2><p><span class="mail">hello@borisstiner.com</span></p></section><footer><a href="">All apps</a><span>© 2026 Boris Stiner</span></footer></main></body></html>
+/* Gallery: each app on a stage lit in its own colour (--c on the tile). Light and dark follow the system. */
+:root {
+  --bg: oklch(97% 0.008 268); --surface: oklch(99.5% 0.003 268); --fg: oklch(19% 0.025 268);
+  --mute: oklch(46% 0.025 268); --line: oklch(89% 0.012 268); --glass: oklch(100% 0 0 / .72); --halo: oklch(86% 0.07 285 / .55);
+  --glow: 30%; --chip: oklch(19% 0.025 268 / .06); --shadow: oklch(19% 0.025 268 / .16);
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Geist", "Helvetica Neue", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: oklch(15% 0.025 268); --surface: oklch(20% 0.03 268); --fg: oklch(95% 0.01 268);
+  --mute: oklch(74% 0.025 268); --line: oklch(30% 0.03 268); --glass: oklch(24% 0.03 268 / .72); --halo: oklch(32% 0.09 285 / .55);
+  --glow: 46%; --chip: oklch(100% 0 0 / .08); --shadow: oklch(100% 0 0 / .08);
+  color-scheme: dark } }
+html, body { overflow-x: clip }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body);
+  background-image: radial-gradient(60rem 30rem at 85% -10%, var(--halo), transparent 70%); background-repeat: no-repeat }
+a:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)) }
+
+.nav { display: flex; justify-content: center; padding-top: max(22px, env(safe-area-inset-top)) }
+.pill { display: flex; gap: 6px 22px; align-items: center; padding: 8px 8px 8px 20px; border-radius: 999px; background: var(--glass);
+  border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); font-size: 15px }
+.pill b { font: 700 16px var(--display); letter-spacing: -0.01em; white-space: nowrap }
+.pill a { color: var(--mute); text-decoration: none; white-space: nowrap }
+.pill a:hover { color: var(--fg) }
+.pill .cta { color: var(--bg); background: var(--fg); padding: 7px 16px; border-radius: 999px; font-weight: 500 }
+.pill .cta:hover { color: var(--bg); background: var(--mute) }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; padding-block: clamp(64px, 11vw, 140px) clamp(40px, 6vw, 72px) }
+.hero h1 { font: 800 clamp(3rem, 7.6vw, 6.4rem)/0.95 var(--display); letter-spacing: -0.035em; margin: 0; overflow-wrap: anywhere; min-width: 0 }
+.hero h1 span { color: var(--mute); display: block }
+.hero p { color: var(--mute); font-size: 19px; max-width: 40ch; margin: 0 }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
+.tile { display: grid; grid-template-rows: 1fr auto; min-height: 420px; padding: 32px; border-radius: 28px; box-sizing: border-box;
+  text-decoration: none; color: var(--fg); border: 1px solid color-mix(in oklch, var(--c) 30%, var(--line));
+  background: radial-gradient(28rem 20rem at 50% 32%, color-mix(in oklch, var(--c) var(--glow), transparent), transparent 72%), var(--surface);
+  transition: transform .4s var(--ease-out), border-color .3s var(--ease-out) }
+.tile:last-child:nth-child(odd) { grid-column: 1 / -1 } /* an odd app count never leaves a lone half tile */
+.tile:hover { transform: translateY(-4px); border-color: color-mix(in oklch, var(--c) 60%, var(--line)) }
+.stage { display: grid; justify-items: center; align-items: start; padding-block: 24px 40px }
+.tile img { width: 136px; height: 136px; border-radius: 31px; transition: transform .5s var(--ease-out);
+  box-shadow: 0 30px 60px -20px color-mix(in oklch, var(--c) 80%, black), 0 0 0 1px var(--shadow) }
+.tile:hover img { transform: scale(1.05) translateY(-4px) }
+.meta { display: grid; justify-items: start; gap: 16px }
+.meta div { min-width: 0 }
+.tile h2 { font: 700 clamp(1.6rem, 2.6vw, 2.1rem)/1.05 var(--display); letter-spacing: -0.02em; margin: 0 }
+.tile p { color: var(--mute); margin: 8px 0 0; max-width: 38ch }
+.url { font-size: 14px; padding: 6px 12px; border-radius: 999px; background: var(--chip); white-space: nowrap }
+
+.contact { padding-block: clamp(80px, 10vw, 128px) 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end }
+.contact h2 { font: 700 clamp(1.8rem, 4vw, 3rem)/1.05 var(--display); letter-spacing: -0.02em; margin: 0 }
+.contact p { color: var(--mute); margin: 10px 0 0 }
+.mail { font: 500 18px var(--body); color: var(--fg); text-decoration: none; padding: 14px 22px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; width: fit-content }
+.mail:hover { border-color: var(--mute) }
+footer { color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); padding-block: 20px max(40px, env(safe-area-inset-bottom)) }
+
+@media (max-width: 760px) {
+  .hero, .grid, .contact { grid-template-columns: minmax(0, 1fr) }
+  .tile { min-height: 360px; padding: 24px }
+  .pill a:not(.cta) { display: none }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; transform: none !important } }
+</style></head><body>
+<div class="wrap">
+  <nav class="nav" aria-label="Site"><div class="pill"><b>Boris Stiner</b><a href="#apps">Apps</a><a class="cta" href="#contact">Get in touch</a></div></nav>
+  <header class="hero">
+    <h1>Small apps. <span>One job each.</span></h1>
+    <p>Each one does a single thing properly and stays out of your way. Built with care by one person.</p>
+  </header>
+  <main class="grid" id="apps" aria-label="Apps">
+    <a class="tile" href="https://kladde.ch" style="--c: #E8553A"><div class="stage"><img src="app-icons/kladde.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Kladde</h2><p>Handwritten recipes become a searchable digital cookbook.</p></div><span class="url">kladde.ch ↗</span></div></a>
+    <a class="tile" href="lumina/" style="--c: #7b4fc4"><div class="stage"><img src="app-icons/lumina.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Lumina: The Chalk Hero</h2><p>Story app for kids 6 to 8. German and English.</p></div><span class="url">Details →</span></div></a>
+    <a class="tile" href="https://markmyhours.com" style="--c: #2F8F5B"><div class="stage"><img src="app-icons/markmyhours.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Mark My Hours</h2><p>Automatic work-hours tracking by GPS, monthly PDF timesheet.</p></div><span class="url">markmyhours.com ↗</span></div></a>
+    <a class="tile" href="https://naipano.com" style="--c: #0A8784"><div class="stage"><img src="app-icons/naipano.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Naipano</h2><p>Publish 360° virtual tours of properties and holiday rentals.</p></div><span class="url">naipano.com ↗</span></div></a>
+  </main>
+  <section class="contact" id="contact">
+    <div><h2>Questions, ideas, bugs?</h2><p>Write to me directly.</p></div>
+    <a class="mail" href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>
+  </section>
+  <footer>© 2026 Boris Stiner</footer>
+</div>
+</body></html>
