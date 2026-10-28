@@ -201,6 +201,7 @@ img, video { max-width: 100%; display: block }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; margin-bottom: 32px }
 .head h2 { font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 800 }
 .head p { margin: 0; color: var(--mute); max-width: 44ch }
+.hero-pick { width: fit-content; margin: -12px 0 20px }
 .shelf { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: 18px; overflow-x: auto; padding: 4px 4px 20px; scroll-snap-type: x mandatory; scrollbar-width: thin }
 .ep { scroll-snap-align: start; margin: 0 }
 .ep img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 20px; transition: transform .35s var(--ease-out) }
@@ -359,6 +360,7 @@ img, video { max-width: 100%; display: block }
     <h2 id="eps"><span lang="de">Acht Folgen in Sonnwil</span><span lang="en">Eight episodes in Sonnwil</span></h2>
     <p><span lang="de">Neue Schule, neue Freunde, eine kleine Lüge und ein grosser Grummel. Jede Folge erzählt von Mut, Freundschaft oder Ehrlichkeit.</span><span lang="en">A new school, new friends, a little lie and a big grumble. Each episode is about courage, friendship or honesty.</span></p>
   </div>
+  <div class="langs hero-pick" role="group" aria-label="Lina / Lino" hidden><button type="button" data-hero="" aria-pressed="true">Lina</button><button type="button" data-hero="_boy" aria-pressed="false">Lino</button></div>
   <div class="shelf">
     <figure class="ep"><div class="cover"><img src="assets/cover1.jpg" alt="" loading="lazy"><span class="ribbon"><span lang="de">Gratis</span><span lang="en">Free</span></span></div><figcaption><b><span lang="de">Neue Stadt, neue Schule</span><span lang="en">New Town, New School</span></b></figcaption></figure>
     <figure class="ep"><img src="assets/cover2.jpg" alt="" loading="lazy"><figcaption><b><span lang="de">Allein in der Pause</span><span lang="en">Alone at Break</span></b></figcaption></figure>
@@ -537,10 +539,18 @@ img, video { max-width: 100%; display: block }
   root.classList.add('js');
   function setLang(l) {
     root.dataset.lang = l;
-    document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l));
+    document.querySelectorAll('.langs button[data-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l));
     try { localStorage.setItem('lumina-lang', l) } catch (e) {}
     shareLinks(l);
   }
+  // the shelf switches every cover between Lina's and Lino's version
+  const heroPick = document.querySelector('.hero-pick');
+  heroPick.hidden = false;
+  heroPick.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    heroPick.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.querySelectorAll('.shelf img').forEach(img => img.src = img.src.replace(/cover(\d)(_boy)?\.jpg/, 'cover$1' + b.dataset.hero + '.jpg'));
+  });
   const shareUrl = 'https://apps.borisstiner.com/lumina/';
   const shareText = {
     de: 'Lumina: eine Lese-App für Kinder von 6 bis 8. Kein Abo, keine Werbung, offline.',
@@ -573,7 +583,7 @@ img, video { max-width: 100%; display: block }
   // the old page linked #de / #en; those links keep choosing the language
   const fromHash = { '#de': 'de', '#en': 'en' }[location.hash];
   setLang(fromHash || saved || ((navigator.language || 'en').toLowerCase().startsWith('de') ? 'de' : 'en'));
-  document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+  document.querySelectorAll('.langs button[data-set]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
 </script>
 </body>
 </html>
