@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lumina: Lese-App für Kinder mit Superheldin · Lesen &amp; Schreiben lernen (6–8)</title>
+<title>Lumina: Lese-App für Kinder mit Superheldin · Lesen &amp; Schreiben lernen (6-8)</title>
 <meta name="description" content="Lumina: Die Kreide-Heldin. Lesen lernen mit Silben, Buchstaben schreiben und vorgelesene Geschichten für Erstleser von 6 bis 8. Kein Abo, keine Werbung, funktioniert offline. Deutsch und Englisch.">
 <meta name="theme-color" content="#e6d9f5">
 <link rel="canonical" href="https://apps.borisstiner.com/lumina/">
@@ -22,7 +22,7 @@
   "@type": "MobileApplication",
   "name": "Lumina: Die Kreide-Heldin",
   "alternateName": "Lumina: The Chalk Hero",
-  "operatingSystem": "iOS, iPadOS",
+  "operatingSystem": "iOS, iPadOS, Android",
   "applicationCategory": "EducationalApplication",
   "inLanguage": [
    "de",
@@ -97,6 +97,14 @@
     "acceptedAnswer": {
      "@type": "Answer",
      "text": "Deutsch und Englisch, jede Sprache mit eigenen Stimmen. Die Sprache stellen Sie jederzeit im Elternbereich um."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Gibt es auch einen Superhelden für Jungen?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja. Ihr Kind wählt zwischen Lina, die zur Superheldin Lumina wird, und Lino, der zum Superhelden Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme."
     }
    }
   ]
@@ -280,6 +288,13 @@ img, video { max-width: 100%; display: block }
 /* ---- closing ---- */
 .closing { position: relative }
 .closing img { width: 100%; height: clamp(220px, 34vw, 420px); object-fit: cover; object-position: 50% 40% }
+.share { display: grid; gap: 14px; justify-items: start; padding-block: 36px 8px; border-bottom: 1px solid var(--line) }
+.share h2 { font: 800 clamp(1.4rem, 2.6vw, 1.8rem)/1.15 var(--display); margin: 0 }
+.share ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px }
+.share a, .share button { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--ink); font: 600 15px var(--body); white-space: nowrap; transition: border-color .2s var(--ease-out) }
+.share a:hover, .share button:hover { border-color: var(--accent) }
+.share a:focus-visible, .share button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.share .native { background: var(--ink); color: var(--paper); border-color: var(--ink) }
 .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 24px 40px; color: var(--mute); font-size: 15px }
 .foot a { color: var(--ink); white-space: nowrap }
 
@@ -326,8 +341,8 @@ img, video { max-width: 100%; display: block }
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></li>
         </ul>
         <ul class="chips">
-          <!-- Lino option: remove "hidden" once Lino is in a release build --><li hidden><span lang="de">Mit Lina oder Lino</span><span lang="en">Play as Lina or Lino</span></li>
-          <li>iPhone &amp; iPad</li>
+          <li><span lang="de">Mit Lina oder Lino</span><span lang="en">Play as Lina or Lino</span></li>
+          <li>iPhone, iPad &amp; Android</li>
           <li><span lang="de">Deutsch &amp; Englisch</span><span lang="en">German &amp; English</span></li>
         </ul>
       </div>
@@ -354,7 +369,7 @@ img, video { max-width: 100%; display: block }
     <figure class="ep"><img src="assets/cover7.jpg" alt="" loading="lazy"><figcaption><b><span lang="de">Omas Geheimnis</span><span lang="en">Grandma's Secret</span></b></figcaption></figure>
     <figure class="ep"><img src="assets/cover8.jpg" alt="" loading="lazy"><figcaption><b><span lang="de">Der grosse Grummel</span><span lang="en">The Big Grumble</span></b></figcaption></figure>
   </div>
-  <!-- Lino option: remove "hidden" once Lino is in a release build --><div class="heroes" hidden>
+  <div class="heroes">
     <figure><img src="assets/lumina_cheer.png" alt="Lumina / Lumina" width="427" height="560" loading="lazy"><figcaption><b>Lina → Lumina</b><span lang="de">die Kreide-Heldin</span><span lang="en">the Chalk Hero</span></figcaption></figure>
     <div class="or"><h3><span lang="de">Lina oder Lino?</span><span lang="en">Lina or Lino?</span></h3><p><span lang="de">Ihr Kind wählt, wer die Geschichte erlebt: Lina, die zu Lumina wird, oder Lino, der zu Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Your child chooses who lives the story: Lina, who becomes Lumina, or Lino, who becomes Lumino. The same story, each hero with their own voice.</span></p></div>
     <figure><img src="assets/lumina_cheer__boy.png" alt="Lumino / Lumino" width="427" height="560" loading="lazy"><figcaption><b>Lino → Lumino</b><span lang="de">der Kreide-Held</span><span lang="en">the Chalk Hero</span></figcaption></figure>
@@ -385,7 +400,7 @@ img, video { max-width: 100%; display: block }
   <div class="learn-grid">
     <div><h3><span lang="de">Lesen mit Silben</span><span lang="en">Reading with syllables</span></h3><p><span lang="de">Farbige Silben nach der Silbenmethode und Silben klatschen machen lange Wörter leicht. So bauen Leseanfänger Schritt für Schritt Lesesicherheit auf.</span><span lang="en">Coloured syllables (the German first-reader method) and clapping games break long words into easy parts, so beginning readers build confidence step by step.</span></p></div>
     <div><h3><span lang="de">Schreiben lernen</span><span lang="en">Learning to write</span></h3><p><span lang="de">Buchstaben nachspuren wie an der Wandtafel: erst einzelne Buchstaben, dann erste Wörter wie den eigenen Heldennamen. Ein Schreibtraining, das sich wie ein Abenteuer anfühlt.</span><span lang="en">Trace letters like on a blackboard, first single letters, then first words such as the hero's name. Handwriting practice that feels like an adventure.</span></p></div>
-    <div><h3><span lang="de">Zuhören und Sprache</span><span lang="en">Listening and language</span></h3><p><span lang="de">Jede Zeile wird mit natürlichen Stimmen vorgelesen, auf Deutsch oder Englisch. Ideal für Kinder, die noch nicht alles selbst lesen, und zum spielerischen Englisch-Hören.</span><span lang="en">Every line is read aloud in natural voices, in German or English. Great for children who can't read everything yet, and for hearing a second language through play.</span></p></div>
+    <div><h3><span lang="de">Zuhören und Sprache</span><span lang="en">Listening and language</span></h3><p><span lang="de">Jede Zeile wird vorgelesen, auf Deutsch oder Englisch. Ideal für Kinder, die noch nicht alles selbst lesen, und zum spielerischen Englisch-Hören.</span><span lang="en">Every line is read aloud, in German or English. Great for children who can't read everything yet, and for hearing a second language through play.</span></p></div>
     <div><h3><span lang="de">Mut und Freundschaft</span><span lang="en">Courage and friendship</span></h3><p><span lang="de">Neue Schule, Ausgrenzung in der Pause, eine kleine Lüge: Die Geschichten greifen echte Gefühle von Schulkindern auf und zeigen, wie Mut, Freundschaft und Ehrlichkeit helfen.</span><span lang="en">A new school, being left out at break, a little lie: the stories pick up real feelings of school children and show how courage, friendship and honesty help.</span></p></div>
   </div>
 </div></section>
@@ -393,13 +408,13 @@ img, video { max-width: 100%; display: block }
 <section class="section gut" id="parents" aria-labelledby="par"><div class="in parents">
   <div>
     <h2 id="par"><span lang="de">Für Eltern: Lumina sammelt keine Daten.</span><span lang="en">For parents: Lumina collects no data.</span></h2>
-    <p class="lede"><span lang="de">Die App ist für die Kategorie „Kinder“ im App Store gemacht und funktioniert vollständig ohne Internet.</span><span lang="en">Made for the App Store Kids category, and it works entirely offline.</span></p>
+    <p class="lede"><span lang="de">Die App ist für die Kategorie „Kinder“ im App Store und das Programm „Für Familien“ bei Google Play gemacht und funktioniert vollständig ohne Internet.</span><span lang="en">Made for the App Store Kids category and Google Play's Families programme, and it works entirely offline.</span></p>
     <ul class="checks">
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Funktioniert offline</span><span lang="en">Works offline</span></b><span lang="de">Im Zug, im Flugzeug, in den Ferien. Kein WLAN nötig.</span><span lang="en">On the train, on a plane, on holiday. No Wi-Fi needed.</span></div></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Kein Konto, keine Werbung, kein Tracking</span><span lang="en">No account, no ads, no tracking</span></b><span lang="de">Keine Software von Drittanbietern.</span><span lang="en">No third-party software.</span></div></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Keine Berechtigungen</span><span lang="en">No permissions</span></b><span lang="de">Kein Mikrofon, keine Kamera, kein Standort, keine Mitteilungen.</span><span lang="en">No microphone, camera, location or notifications.</span></div></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Käufe nur hinter der Eltern-Sperre</span><span lang="en">Purchases only behind the parental gate</span></b><span lang="de">Ihr Kind sieht nie einen Preis.</span><span lang="en">Your child never sees a price.</span></div></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Familienfreigabe</span><span lang="en">Family Sharing</span></b><span lang="de">Einmal kaufen, auf allen Geräten der Familie spielen.</span><span lang="en">Buy once, play on every device in the family.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b><span lang="de">Einmal kaufen, auf allen Geräten</span><span lang="en">Buy once, play on every device</span></b><span lang="de">Mit der Apple-Familienfreigabe auf allen Geräten der Familie, bei Google Play auf allen Geräten mit demselben Konto.</span><span lang="en">With Apple Family Sharing on every device in the family, on Google Play on every device with the same account.</span></div></li>
     </ul>
     <div class="price"><b><span lang="de">Folge 1 ist gratis.</span><span lang="en">Episode 1 is free.</span></b><p><span lang="de">Die Folgen 2 bis 8 kaufen Sie einmalig, einzeln oder alle zusammen.</span><span lang="en">Episodes 2 to 8 are a one-time purchase, one by one or all together.</span></p>
       <ul class="promise">
@@ -420,13 +435,13 @@ img, video { max-width: 100%; display: block }
   <details><summary><span lang="de">Was kostet Lumina? Gibt es ein Abo?</span><span lang="en">What does Lumina cost? Is there a subscription?</span></summary><p><span lang="de">Kein Abo. Folge 1 ist gratis. Die Folgen 2 bis 8 kaufen Sie einmalig, einzeln oder alle zusammen, im Elternbereich hinter der Eltern-Sperre. Mit der Familienfreigabe gelten Käufe für die ganze Familie.</span><span lang="en">No subscription. Episode 1 is free. Episodes 2 to 8 are a one-time purchase, one by one or all together, in the Parent Area behind the parental gate. With Family Sharing, purchases work for the whole family.</span></p></details>
   <details><summary><span lang="de">Lernt mein Kind damit lesen und schreiben?</span><span lang="en">Will my child learn to read and write with it?</span></summary><p><span lang="de">Lumina ersetzt keinen Unterricht, übt aber spielerisch, was in der Schule gerade dran ist: Buchstaben schreiben, Silben klatschen und Wörter mit farbigen Silben lesen.</span><span lang="en">Lumina doesn't replace school, but it practises what children are learning there through play: writing letters, clapping syllables and reading words in coloured syllables.</span></p></details>
   <details><summary><span lang="de">In welchen Sprachen gibt es Lumina?</span><span lang="en">Which languages does Lumina speak?</span></summary><p><span lang="de">Deutsch und Englisch, jede Sprache mit eigenen Stimmen. Die Sprache stellen Sie jederzeit im Elternbereich um.</span><span lang="en">German and English, each with its own voices. You can switch the language at any time in the Parent Area.</span></p></details>
-  <!-- Lino option: remove "hidden" once Lino is in a release build --><details data-lino hidden><summary><span lang="de">Gibt es auch einen Superhelden für Jungen?</span><span lang="en">Is there a superhero boy too?</span></summary><p><span lang="de">Ja. Ihr Kind wählt zwischen Lina, die zur Superheldin Lumina wird, und Lino, der zum Superhelden Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Yes. Your child chooses between Lina, who becomes the superhero Lumina, and Lino, who becomes the superhero Lumino. The same story, each hero with their own voice.</span></p></details>
+  <details data-lino><summary><span lang="de">Gibt es auch einen Superhelden für Jungen?</span><span lang="en">Is there a superhero boy too?</span></summary><p><span lang="de">Ja. Ihr Kind wählt zwischen Lina, die zur Superheldin Lumina wird, und Lino, der zum Superhelden Lumino wird. Dieselbe Geschichte, jede Figur mit eigener Stimme.</span><span lang="en">Yes. Your child chooses between Lina, who becomes the superhero Lumina, and Lino, who becomes the superhero Lumino. The same story, each hero with their own voice.</span></p></details>
 </div></section>
 
 <section class="doc-band section gut" id="privacy"><div class="in doc">
   <aside class="toc">
     <h2><span lang="de">Datenschutz &amp; Support</span><span lang="en">Privacy &amp; Support</span></h2>
-    <p><span lang="de">Stand: 26.10.2026</span><span lang="en">Last updated: 26 October 2026</span></p>
+    <p><span lang="de">Stand: 28.10.2026</span><span lang="en">Last updated: 28 October 2026</span></p>
     <a href="#support">Support ↓</a>
   </aside>
   <div class="policy">
@@ -436,7 +451,7 @@ img, video { max-width: 100%; display: block }
       <h3>1. Verantwortlich</h3>
       <p>Boris Stiner, Schweiz · E-Mail: <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a></p>
       <h3>2. Welche Daten wir erheben</h3>
-      <p>Keine. Lumina erhebt, speichert, überträgt oder verkauft keine personenbezogenen Daten – weder von Kindern noch von Erwachsenen. Insbesondere:</p>
+      <p>Keine. Lumina erhebt, speichert, überträgt oder verkauft keine personenbezogenen Daten, weder von Kindern noch von Erwachsenen. Insbesondere:</p>
       <ul>
         <li>kein Konto, keine Anmeldung, keine Eingabe von Namen, E-Mail-Adressen oder Fotos;</li>
         <li>keine Werbung, kein Tracking, keine Analyse- oder Absturzberichts-Dienste, keine Software von Drittanbietern (SDKs);</li>
@@ -446,9 +461,9 @@ img, video { max-width: 100%; display: block }
       <h3>3. Was auf dem Gerät gespeichert wird</h3>
       <p>Der Spielstand (gespielte Folgen, gesammelte Sterne, Sticker, Farben der Heldin, Sprache und Einstellungen) wird nur lokal auf dem Gerät gespeichert. Wir haben keinen Zugriff darauf. Beim Löschen der App wird er vollständig entfernt.</p>
       <h3>4. Käufe</h3>
-      <p>Folge 1 ist gratis. Weitere Folgen können im Elternbereich gekauft werden, der durch eine Eltern-Sperre geschützt ist. Käufe werden ausschliesslich von Apple über den App Store abgewickelt; es gelten die <a href="https://www.apple.com/legal/privacy/">Datenschutzbestimmungen von Apple</a>. Wir erhalten dabei keine persönlichen Daten, sondern nur die anonyme Bestätigung, dass ein Kauf auf diesem Gerät gültig ist.</p>
+      <p>Folge 1 ist gratis. Weitere Folgen können im Elternbereich gekauft werden, der durch eine Eltern-Sperre geschützt ist. Käufe werden ausschliesslich über den App Store von Apple oder über Google Play abgewickelt; es gelten die <a href="https://www.apple.com/legal/privacy/">Datenschutzbestimmungen von Apple</a> bzw. die <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>. Wir erhalten dabei keine persönlichen Daten, sondern nur die anonyme Bestätigung, dass ein Kauf auf diesem Gerät gültig ist.</p>
       <h3>5. Kinder</h3>
-      <p>Lumina ist in der Kategorie „Kinder“ des App Store. Weil wir keine Daten erheben, werden auch keine Daten von Kindern erhoben, verwendet oder weitergegeben. Käufe, Bewertungen und Links aus der App heraus sind nur im Elternbereich hinter einer Eltern-Sperre erreichbar.</p>
+      <p>Lumina ist für die Kategorie „Kinder“ des App Store und das Programm „Für Familien“ von Google Play gemacht. Weil wir keine Daten erheben, werden auch keine Daten von Kindern erhoben, verwendet oder weitergegeben. Käufe, Bewertungen und Links aus der App heraus sind nur im Elternbereich hinter einer Eltern-Sperre erreichbar.</p>
       <h3>6. Ihre Rechte</h3>
       <p>Da wir keine personenbezogenen Daten verarbeiten, gibt es nichts, was wir auskunften, berichtigen oder löschen könnten. Für Fragen zum Datenschutz (DSG, DSGVO, COPPA) erreichen Sie uns jederzeit unter der oben genannten E-Mail-Adresse. Wenn Sie uns eine E-Mail schreiben, verwenden wir Ihre Adresse nur, um zu antworten.</p>
       <h3>7. Änderungen</h3>
@@ -470,9 +485,9 @@ img, video { max-width: 100%; display: block }
       <h3>3. What is stored on the device</h3>
       <p>Progress (episodes played, stars, stickers, hero colours, language and settings) is stored only locally on the device. We have no access to it. Deleting the app removes it completely.</p>
       <h3>4. Purchases</h3>
-      <p>Episode 1 is free. More episodes can be bought in the Parent Area, which is protected by a parental gate. Purchases are handled entirely by Apple through the App Store and are subject to <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. We receive no personal data, only an anonymous confirmation that a purchase is valid on this device.</p>
+      <p>Episode 1 is free. More episodes can be bought in the Parent Area, which is protected by a parental gate. Purchases are handled entirely by Apple through the App Store or by Google Play and are subject to <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> or <a href="https://policies.google.com/privacy">Google's privacy policy</a>. We receive no personal data, only an anonymous confirmation that a purchase is valid on this device.</p>
       <h3>5. Children</h3>
-      <p>Lumina is listed in the App Store Kids category. Because we collect no data, no data from children is collected, used or shared. Purchases, ratings and any links out of the app are only reachable in the Parent Area behind a parental gate.</p>
+      <p>Lumina is made for the App Store Kids category and Google Play's Families programme. Because we collect no data, no data from children is collected, used or shared. Purchases, ratings and any links out of the app are only reachable in the Parent Area behind a parental gate.</p>
       <h3>6. Your rights</h3>
       <p>Since we process no personal data, there is nothing for us to disclose, correct or delete. For any privacy question (Swiss FADP, GDPR, COPPA) you can reach us at any time at the email address above. If you email us, we use your address only to reply.</p>
       <h3>7. Changes</h3>
@@ -484,17 +499,17 @@ img, video { max-width: 100%; display: block }
       <div lang="de">
         <p>Fragen, Probleme oder Ideen? Schreiben Sie an <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>, wir antworten in der Regel innerhalb von zwei Tagen.</p>
         <ul>
-          <li><strong>Käufe wiederherstellen:</strong> Elternbereich (Zahnrad) öffnen → „Käufe wiederherstellen“. Mit der Familienfreigabe funktionieren Käufe auf allen Geräten der Familie.</li>
+          <li><strong>Käufe wiederherstellen:</strong> Elternbereich (Zahnrad) öffnen → „Käufe wiederherstellen“. Auf dem iPhone und iPad funktionieren Käufe mit der Familienfreigabe auf allen Geräten der Familie. Auf Android gelten Käufe auf allen Geräten, die mit demselben Google-Konto angemeldet sind.</li>
           <li><strong>Sprache:</strong> Deutsch oder Englisch im Elternbereich wählen.</li>
-          <li><strong>Erstattung:</strong> über <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (wird von Apple bearbeitet).</li>
+          <li><strong>Erstattung:</strong> iPhone und iPad über <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (wird von Apple bearbeitet), Android über <a href="https://support.google.com/googleplay/answer/2479637?hl=de">Google Play</a> (wird von Google bearbeitet).</li>
         </ul>
       </div>
       <div lang="en">
         <p>Questions, problems or ideas? Email <a href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>; we usually reply within two days.</p>
         <ul>
-          <li><strong>Restore purchases:</strong> open the Parent Area (gear icon) → “Restore purchases”. With Family Sharing, purchases work on every device in the family.</li>
+          <li><strong>Restore purchases:</strong> open the Parent Area (gear icon) → “Restore purchases”. On iPhone and iPad, Family Sharing makes purchases work on every device in the family. On Android, purchases work on every device signed in with the same Google account.</li>
           <li><strong>Language:</strong> choose German or English in the Parent Area.</li>
-          <li><strong>Refunds:</strong> via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (handled by Apple).</li>
+          <li><strong>Refunds:</strong> iPhone and iPad via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (handled by Apple), Android via <a href="https://support.google.com/googleplay/answer/2479637?hl=en">Google Play</a> (handled by Google).</li>
         </ul>
       </div>
     </section>
@@ -503,6 +518,17 @@ img, video { max-width: 100%; display: block }
 
 <footer class="closing">
   <img src="assets/finale.jpg" alt="Lina winkt am Seefest, umgeben von Familie und Freunden / Lina waving at the lake festival with her family and friends" loading="lazy">
+  <div class="gut"><div class="in share">
+    <h2><span lang="de">Kennen Sie Eltern, denen Lumina gefallen würde?</span><span lang="en">Know parents who would like Lumina?</span></h2>
+    <ul>
+      <li hidden><button type="button" class="native" data-share="native"><span lang="de">Teilen</span><span lang="en">Share</span></button></li>
+      <li><a data-share="whatsapp" href="https://wa.me/?text=https%3A%2F%2Fapps.borisstiner.com%2Flumina%2F" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fapps.borisstiner.com%2Flumina%2F" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a data-share="pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fapps.borisstiner.com%2Flumina%2F" target="_blank" rel="noopener">Pinterest</a></li>
+      <li><a data-share="email" href="mailto:?body=https%3A%2F%2Fapps.borisstiner.com%2Flumina%2F">E-Mail</a></li>
+      <li><button type="button" data-share="copy"><span lang="de">Link kopieren</span><span lang="en">Copy link</span></button></li>
+    </ul>
+  </div></div>
   <div class="gut"><div class="in foot"><span>© 2026 Boris Stiner</span><a href="https://apps.borisstiner.com/"><span lang="de">Weitere Apps</span><span lang="en">More apps</span> →</a></div></div>
 </footer>
 
@@ -513,7 +539,36 @@ img, video { max-width: 100%; display: block }
     root.dataset.lang = l;
     document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l));
     try { localStorage.setItem('lumina-lang', l) } catch (e) {}
+    shareLinks(l);
   }
+  const shareUrl = 'https://apps.borisstiner.com/lumina/';
+  const shareText = {
+    de: 'Lumina: eine Lese-App für Kinder von 6 bis 8. Kein Abo, keine Werbung, offline.',
+    en: 'Lumina: a reading app for children aged 6 to 8. No subscription, no ads, works offline.'
+  };
+  function shareLinks(l) {
+    const t = shareText[l], u = encodeURIComponent(shareUrl), e = encodeURIComponent(t);
+    const href = {
+      whatsapp: 'https://wa.me/?text=' + encodeURIComponent(t + ' ' + shareUrl),
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+      pinterest: 'https://pinterest.com/pin/create/button/?url=' + u + '&media=' + encodeURIComponent(shareUrl + 'assets/finale.jpg') + '&description=' + e,
+      email: 'mailto:?subject=' + encodeURIComponent('Lumina') + '&body=' + encodeURIComponent(t + '\n\n' + shareUrl)
+    };
+    document.querySelectorAll('a[data-share]').forEach(a => a.href = href[a.dataset.share]);
+  }
+  const nativeShare = document.querySelector('[data-share="native"]');
+  if (navigator.share) {
+    nativeShare.parentElement.hidden = false;
+    nativeShare.addEventListener('click', () => navigator.share({ title: 'Lumina', text: shareText[root.dataset.lang], url: shareUrl }).catch(() => {}));
+  }
+  const copy = document.querySelector('[data-share="copy"]');
+  copy.addEventListener('click', () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      const label = copy.innerHTML;
+      copy.innerHTML = '<span lang="de">Kopiert</span><span lang="en">Copied</span>';
+      setTimeout(() => copy.innerHTML = label, 1800);
+    });
+  });
   let saved = null; try { saved = localStorage.getItem('lumina-lang') } catch (e) {}
   // the old page linked #de / #en; those links keep choosing the language
   const fromHash = { '#de': 'de', '#en': 'en' }[location.hash];
