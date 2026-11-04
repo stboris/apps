@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- shortcut: hand-written; add each new page (e.g. /zaehlis/ + /zaehlis/en/) with its hreflang pair -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://apps.borisstiner.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apps.borisstiner.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apps.borisstiner.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apps.borisstiner.com/"/></url>
+  <url><loc>https://apps.borisstiner.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apps.borisstiner.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apps.borisstiner.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apps.borisstiner.com/"/></url>
+</urlset>

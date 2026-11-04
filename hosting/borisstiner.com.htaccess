@@ -1,0 +1,7 @@
+# borisstiner.com has no page of its own yet: send everything to the app gallery.
+# 302 (temporary) so browsers don't cache it forever; switch to a real page here later.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
+    RewriteRule ^ https://apps.borisstiner.com/ [R=302,L]
+</IfModule>

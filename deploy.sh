@@ -11,11 +11,13 @@ cd "$(dirname "$0")"
 # index.src.html (bilingual source) -> index.html (en) + de/index.html; both are committed for GitHub Pages.
 python3 tools/bilingual.py index.src.html . https://apps.borisstiner.com/ en
 
-rsync -avz --delete --exclude .git --exclude .nojekyll --exclude deploy.sh --exclude index.src.html --exclude tools \
+rsync -avz --delete --exclude .git --exclude .nojekyll --exclude deploy.sh --exclude index.src.html --exclude tools --exclude hosting \
     ./ "$SSH_TARGET:$REMOTE_ROOT/"
 
 # The webroot must stay readable for the web server, whatever mode the local folder has
 # (macOS rsync has no --chmod).
 ssh "$SSH_TARGET" "chmod 755 $REMOTE_ROOT && find $REMOTE_ROOT -mindepth 1 -type d -exec chmod 755 {} + && find $REMOTE_ROOT -type f -exec chmod 644 {} +"
 
+# borisstiner.com (own webroot) only redirects to the gallery.
+scp -q hosting/borisstiner.com.htaccess "$SSH_TARGET:/home/jupubozi/public_html/borisstiner.com/.htaccess"
 echo "Deployed to https://apps.borisstiner.com"
