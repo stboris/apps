@@ -1,0 +1,108 @@
+<!doctype html><html lang="de" data-lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title lang="de">Apps von Boris Stiner</title>
+<meta lang="de" name="description" content="Kleine Apps von Boris Stiner. Jede macht eine Sache richtig.">
+<link rel="canonical" href="https://apps.borisstiner.com/de/">
+<link rel="alternate" hreflang="de" href="https://apps.borisstiner.com/de/">
+<link rel="alternate" hreflang="en" href="https://apps.borisstiner.com/">
+<link rel="alternate" hreflang="x-default" href="https://apps.borisstiner.com/">
+<meta property="og:url" content="https://apps.borisstiner.com/de/">
+<meta property="og:locale" content="de_CH">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#f3f4fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../app-icons/hitori.png">
+<link rel="stylesheet" href="/fonts/21504bb7bd.css">
+<style>
+/* Gallery: each app on a stage lit in its own colour (--c on the tile). Light and dark follow the system. */
+:root {
+  --bg: oklch(97% 0.008 268); --surface: oklch(99.5% 0.003 268); --fg: oklch(19% 0.025 268);
+  --mute: oklch(46% 0.025 268); --line: oklch(89% 0.012 268); --glass: oklch(100% 0 0 / .72); --halo: oklch(86% 0.07 285 / .55);
+  --glow: 30%; --chip: oklch(19% 0.025 268 / .06); --shadow: oklch(19% 0.025 268 / .16);
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Geist", "Helvetica Neue", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: oklch(15% 0.025 268); --surface: oklch(20% 0.03 268); --fg: oklch(95% 0.01 268);
+  --mute: oklch(74% 0.025 268); --line: oklch(30% 0.03 268); --glass: oklch(24% 0.03 268 / .72); --halo: oklch(32% 0.09 285 / .55);
+  --glow: 46%; --chip: oklch(100% 0 0 / .08); --shadow: oklch(100% 0 0 / .08);
+  color-scheme: dark } }
+html, body { overflow-x: clip }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body);
+  background-image: radial-gradient(60rem 30rem at 85% -10%, var(--halo), transparent 70%); background-repeat: no-repeat }
+a:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)) }
+
+.nav { display: flex; justify-content: center; padding-top: max(22px, env(safe-area-inset-top)) }
+.pill { display: flex; gap: 6px 22px; align-items: center; padding: 8px 8px 8px 20px; border-radius: 999px; background: var(--glass);
+  border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); font-size: 15px }
+.pill b { font: 700 16px var(--display); letter-spacing: -0.01em; white-space: nowrap }
+.pill a { color: var(--mute); text-decoration: none; white-space: nowrap }
+.pill a:hover { color: var(--fg) }
+.pill .cta { color: var(--bg); background: var(--fg); padding: 7px 16px; border-radius: 999px; font-weight: 500 }
+.pill .langs { display: flex; gap: 2px }
+.pill .langs a { padding: 4px 9px; border-radius: 999px; font-size: 13px; font-weight: 600 }
+.pill .langs a[aria-current] { color: var(--fg); background: var(--chip) }
+.pill .cta:hover { color: var(--bg); background: var(--mute) }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; padding-block: clamp(64px, 11vw, 140px) clamp(40px, 6vw, 72px) }
+.hero h1 { font: 800 clamp(3rem, 7.6vw, 6.4rem)/0.95 var(--display); letter-spacing: -0.035em; margin: 0; overflow-wrap: anywhere; min-width: 0 }
+.hero h1 span { color: var(--mute); display: block }
+.hero p { color: var(--mute); font-size: 19px; max-width: 40ch; margin: 0 }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
+.tile { display: grid; grid-template-rows: 1fr auto; min-height: 420px; padding: 32px; border-radius: 28px; box-sizing: border-box;
+  text-decoration: none; color: var(--fg); border: 1px solid color-mix(in oklch, var(--c) 30%, var(--line));
+  background: radial-gradient(28rem 20rem at 50% 32%, color-mix(in oklch, var(--c) var(--glow), transparent), transparent 72%), var(--surface);
+  transition: transform .4s var(--ease-out), border-color .3s var(--ease-out) }
+.tile:last-child:nth-child(odd) { grid-column: 1 / -1 } /* an odd app count never leaves a lone half tile */
+.tile:hover { transform: translateY(-4px); border-color: color-mix(in oklch, var(--c) 60%, var(--line)) }
+.stage { display: grid; justify-items: center; align-items: start; padding-block: 24px 40px }
+.tile img { width: 136px; height: 136px; border-radius: 31px; transition: transform .5s var(--ease-out);
+  box-shadow: 0 30px 60px -20px color-mix(in oklch, var(--c) 80%, black), 0 0 0 1px var(--shadow) }
+.tile:hover img { transform: scale(1.05) translateY(-4px) }
+.meta { display: grid; justify-items: start; gap: 16px }
+.meta div { min-width: 0 }
+.tile h2 { font: 700 clamp(1.6rem, 2.6vw, 2.1rem)/1.05 var(--display); letter-spacing: -0.02em; margin: 0 }
+.tile p { color: var(--mute); margin: 8px 0 0; max-width: 38ch }
+.url { font-size: 14px; padding: 6px 12px; border-radius: 999px; background: var(--chip); white-space: nowrap }
+
+.contact { padding-block: clamp(80px, 10vw, 128px) 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end }
+.contact h2 { font: 700 clamp(1.8rem, 4vw, 3rem)/1.05 var(--display); letter-spacing: -0.02em; margin: 0 }
+.contact p { color: var(--mute); margin: 10px 0 0 }
+.mail { font: 500 18px var(--body); color: var(--fg); text-decoration: none; padding: 14px 22px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; width: fit-content }
+.mail:hover { border-color: var(--mute) }
+footer { color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); padding-block: 20px max(40px, env(safe-area-inset-bottom)) }
+
+@media (max-width: 760px) {
+  .hero, .grid, .contact { grid-template-columns: minmax(0, 1fr) }
+  .tile { min-height: 360px; padding: 24px }
+  .pill > a:not(.cta) { display: none }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; transform: none !important } }
+</style></head><body>
+<div class="wrap">
+  <nav class="nav" aria-label="Site"><div class="pill"><b>Boris Stiner</b><a href="#apps">Apps</a><span class="langs" role="group" aria-label="Sprache"><a href="https://apps.borisstiner.com/" hreflang="en">EN</a><a href="https://apps.borisstiner.com/de/" aria-current="page" hreflang="de">DE</a></span><a class="cta" href="#contact"><span lang="de">Kontakt</span></a></div></nav>
+  <header class="hero">
+    <h1 lang="de">Kleine Apps. <span>Jede mit einer Aufgabe.</span></h1>
+    <p lang="de">Jede macht eine Sache richtig und steht dir nicht im Weg. Mit Sorgfalt gebaut von einer Person.</p>
+  </header>
+  <main class="grid" id="apps" aria-label="Apps">
+    <a class="tile" href="https://kladde.ch" style="--c: #E8553A"><div class="stage"><img src="../app-icons/kladde.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Kladde</h2><p><span lang="de">Handgeschriebene Rezepte werden zum durchsuchbaren digitalen Kochbuch.</span></p></div><span class="url">kladde.ch ↗</span></div></a>
+    <a lang="de" class="tile" href="https://lina-kreideheldin.ch/" style="--c: #7b4fc4"><div class="stage"><img src="../app-icons/lumina.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Lina: Die Kreide-Heldin</h2><p>Geschichten-App für Kinder von 5 bis 9. Deutsch und Englisch.</p></div><span class="url">lina-kreideheldin.ch ↗</span></div></a>
+    <a class="tile" href="https://markmyhours.com" style="--c: #2F8F5B"><div class="stage"><img src="../app-icons/markmyhours.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Mark My Hours</h2><p><span lang="de">Arbeitszeit automatisch per GPS erfassen, monatlicher PDF-Stundenzettel.</span></p></div><span class="url">markmyhours.com ↗</span></div></a>
+    <a class="tile" href="https://naipano.com" style="--c: #0A8784"><div class="stage"><img src="../app-icons/naipano.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Naipano</h2><p><span lang="de">360°-Rundgänge für Immobilien und Ferienwohnungen veröffentlichen.</span></p></div><span class="url">naipano.com ↗</span></div></a>
+  </main>
+  <section class="contact" id="contact">
+    <div><h2><span lang="de">Fragen, Ideen, Fehler?</span></h2><p><span lang="de">Schreib mir direkt.</span></p></div>
+    <a class="mail" href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>
+  </section>
+  <footer>© 2026 Boris Stiner</footer>
+</div>
+</body></html>

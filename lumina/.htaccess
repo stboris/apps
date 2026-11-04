@@ -1,0 +1,3 @@
+# The Lumina page moved to its own domain (4.11.2026). 301 keeps Google rankings and old App Store links.
+RedirectMatch 301 ^/lumina/(finale\.jpg|icon\.png)$ https://lina-kreideheldin.ch/assets/$1
+RedirectMatch 301 ^/lumina/(.*)$ https://lina-kreideheldin.ch/$1

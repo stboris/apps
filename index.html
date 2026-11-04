@@ -1,6 +1,14 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Boris Stiner Apps</title><meta name="description" content="Small apps by Boris Stiner. Each one does a single thing properly.">
+<title lang="en">Boris Stiner Apps</title>
+<meta lang="en" name="description" content="Small apps by Boris Stiner. Each one does a single thing properly.">
+<link rel="canonical" href="https://apps.borisstiner.com/">
+<link rel="alternate" hreflang="de" href="https://apps.borisstiner.com/de/">
+<link rel="alternate" hreflang="en" href="https://apps.borisstiner.com/">
+<link rel="alternate" hreflang="x-default" href="https://apps.borisstiner.com/">
+<meta property="og:url" content="https://apps.borisstiner.com/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_CH">
 <meta name="theme-color" content="#f3f4fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="app-icons/hitori.png">
@@ -34,6 +42,9 @@ a:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px }
 .pill a { color: var(--mute); text-decoration: none; white-space: nowrap }
 .pill a:hover { color: var(--fg) }
 .pill .cta { color: var(--bg); background: var(--fg); padding: 7px 16px; border-radius: 999px; font-weight: 500 }
+.pill .langs { display: flex; gap: 2px }
+.pill .langs a { padding: 4px 9px; border-radius: 999px; font-size: 13px; font-weight: 600 }
+.pill .langs a[aria-current] { color: var(--fg); background: var(--chip) }
 .pill .cta:hover { color: var(--bg); background: var(--mute) }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; padding-block: clamp(64px, 11vw, 140px) clamp(40px, 6vw, 72px) }
@@ -68,28 +79,28 @@ footer { color: var(--mute); font-size: 14px; border-top: 1px solid var(--line);
 @media (max-width: 760px) {
   .hero, .grid, .contact { grid-template-columns: minmax(0, 1fr) }
   .tile { min-height: 360px; padding: 24px }
-  .pill a:not(.cta) { display: none }
+  .pill > a:not(.cta) { display: none }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; transform: none !important } }
 </style></head><body>
 <div class="wrap">
-  <nav class="nav" aria-label="Site"><div class="pill"><b>Boris Stiner</b><a href="#apps">Apps</a><a class="cta" href="#contact">Get in touch</a></div></nav>
+  <nav class="nav" aria-label="Site"><div class="pill"><b>Boris Stiner</b><a href="#apps">Apps</a><span class="langs" role="group" aria-label="Language"><a href="https://apps.borisstiner.com/" aria-current="page" hreflang="en">EN</a><a href="https://apps.borisstiner.com/de/" hreflang="de">DE</a></span><a class="cta" href="#contact"><span lang="en">Get in touch</span></a></div></nav>
   <header class="hero">
-    <h1>Small apps. <span>One job each.</span></h1>
-    <p>Each one does a single thing properly and stays out of your way. Built with care by one person.</p>
+    <h1 lang="en">Small apps. <span>One job each.</span></h1>
+    <p lang="en">Each one does a single thing properly and stays out of your way. Built with care by one person.</p>
   </header>
   <main class="grid" id="apps" aria-label="Apps">
     <a class="tile" href="https://kladde.ch" style="--c: #E8553A"><div class="stage"><img src="app-icons/kladde.png" alt="" width="136" height="136"></div>
-      <div class="meta"><div><h2>Kladde</h2><p>Handwritten recipes become a searchable digital cookbook.</p></div><span class="url">kladde.ch ↗</span></div></a>
-    <a class="tile" href="lumina/" style="--c: #7b4fc4"><div class="stage"><img src="app-icons/lumina.png" alt="" width="136" height="136"></div>
-      <div class="meta"><div><h2>Lumina: The Chalk Hero</h2><p>Story app for kids 6 to 8. German and English.</p></div><span class="url">Details →</span></div></a>
+      <div class="meta"><div><h2>Kladde</h2><p><span lang="en">Handwritten recipes become a searchable digital cookbook.</span></p></div><span class="url">kladde.ch ↗</span></div></a>
+    <a lang="en" class="tile" href="https://lina-kreideheldin.ch/en/" style="--c: #7b4fc4"><div class="stage"><img src="app-icons/lumina.png" alt="" width="136" height="136"></div>
+      <div class="meta"><div><h2>Lina: The Chalk Hero</h2><p>Story app for kids 5 to 9. German and English.</p></div><span class="url">lina-kreideheldin.ch ↗</span></div></a>
     <a class="tile" href="https://markmyhours.com" style="--c: #2F8F5B"><div class="stage"><img src="app-icons/markmyhours.png" alt="" width="136" height="136"></div>
-      <div class="meta"><div><h2>Mark My Hours</h2><p>Automatic work-hours tracking by GPS, monthly PDF timesheet.</p></div><span class="url">markmyhours.com ↗</span></div></a>
+      <div class="meta"><div><h2>Mark My Hours</h2><p><span lang="en">Automatic work-hours tracking by GPS, monthly PDF timesheet.</span></p></div><span class="url">markmyhours.com ↗</span></div></a>
     <a class="tile" href="https://naipano.com" style="--c: #0A8784"><div class="stage"><img src="app-icons/naipano.png" alt="" width="136" height="136"></div>
-      <div class="meta"><div><h2>Naipano</h2><p>Publish 360° virtual tours of properties and holiday rentals.</p></div><span class="url">naipano.com ↗</span></div></a>
+      <div class="meta"><div><h2>Naipano</h2><p><span lang="en">Publish 360° virtual tours of properties and holiday rentals.</span></p></div><span class="url">naipano.com ↗</span></div></a>
   </main>
   <section class="contact" id="contact">
-    <div><h2>Questions, ideas, bugs?</h2><p>Write to me directly.</p></div>
+    <div><h2><span lang="en">Questions, ideas, bugs?</span></h2><p><span lang="en">Write to me directly.</span></p></div>
     <a class="mail" href="mailto:hello@borisstiner.com">hello@borisstiner.com</a>
   </section>
   <footer>© 2026 Boris Stiner</footer>
